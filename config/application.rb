@@ -16,7 +16,7 @@ module Airbnb
     # -- all .rb files in that directory are automatically loaded.
   end
   class Application < Rails::Application
-    concerning.generators do |g|
+    config.generators do |g|
       g.javascripts false
       g.helper false
       g.test_framework false
