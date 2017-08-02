@@ -19,6 +19,7 @@ gem 'devise'
 gem 'toastr-rails'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -40,9 +41,6 @@ group :development do
   gem 'carrierwave'
   gem 'mini_magick'
 end
-
-
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :production do
   gem 'unicorn'

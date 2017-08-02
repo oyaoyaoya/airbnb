@@ -15,10 +15,12 @@ module Airbnb
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
   end
-class Application < Rails::Application
-  concerning.generators do |g|
-    g.javascripts false
-    g.helper false
-    g.test_framework false
+  class Application < Rails::Application
+    concerning.generators do |g|
+      g.javascripts false
+      g.helper false
+      g.test_framework false
+    end
   end
 end
+
