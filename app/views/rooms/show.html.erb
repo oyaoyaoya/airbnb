@@ -19,17 +19,23 @@
             <%= @room.user.fullname %>
           </div>
 
-          <div class="col-md-9">
-            <h4><%= @room.listing_name %></h4>
-            <%= @room.address %>
-            <div class="row text-center row-space-1">
-              <div class="col-sm-3">
-                <i class="fa fa-home fa-2x"></i>
-                <i class="fa fa-users fa-2x"></i>
-                <i class="fa fa-bed fa-2x"></i>
-                <i class="fa fa-ship fa-2x"></i>
-              </div>
-            </div>
+      <div class="col-md-9">
+        <h4><%= @room.listing_name %></h4>
+        <%= @room.address %>
+        <div class="row text-center row-space-1">
+          <div class="col-sm-3">
+            <i class="fa fa-home fa-2x"></i>
+          </div>
+          <div class="col-sm-3">
+            <i class="fa fa-users fa-2x"></i>
+          </div>
+          <div class="col-sm-3">
+            <i class="fa fa-bed fa-2x"></i>
+          </div>
+          <div class="col-sm-3">
+            <i class="fa fa-ship fa-2x"></i>
+          </div>
+        </div>
 
             <div class="row text-center">
               <div class="col-sm-3">
@@ -45,19 +51,21 @@
                 <%= @room.bath_room %><%= @room.bath_room > 1? "Bathrooms" : "Bathroom" %>
               </div>
             </div>
-          </div>
 
+          </div>
         </div>
       </div>
+
       <div class="col-md-4">
         <!-- reservation form-->
+        <%= render 'reservation/form' %>
       </div>
     </div>
 
     <!-- about -->
     <div class="row">
       <div class="col-md-12">
-        <h2>About This Listin</h2>
+        <h2>About This Listing</h2>
         <p><%= @room.summary %></p>
       </div>
     </div>
@@ -156,7 +164,7 @@
       </div>
     </div>
 
-    <!-- clse by rooms -->
+    <!-- closeby rooms -->
     <h3>Nearby</h3>
     <div class="row">
       <% for room in @room.neabys(10) %>
@@ -176,4 +184,6 @@
     </div>
 
   </div>
+</div>
+</div>
 </div>
