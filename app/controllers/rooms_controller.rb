@@ -1,6 +1,7 @@
 class RoomsController < ApplicationController
 before_action :set_room, only: [:show, :edit, :update]
-before_action :authenticated_user!, except: [:show]
+before_action :authenticate_user!, except: [:show]
+
   def index
     @rooms = current_user.rooms
   end
@@ -10,10 +11,7 @@ before_action :authenticated_user!, except: [:show]
   end
 
   def new
-  @room = current_user.rooms.build
-  end
-
-  def new
+    @room = current_user.rooms.build
   end
 
   def create
@@ -28,12 +26,12 @@ before_action :authenticated_user!, except: [:show]
       @photos = @room.photos
       redirect_to edit_room_path(@room), notice: "Saved..."
     else
-      render :new
+      render :new, notice: "Something wrong, Please try again"
     end
   end
 
   def edit
-    if current_user_id == @room.user.id
+    if current_user.id == @room.user.id
       @photos = @room.photos
     else
       redirect_to root_path, notice: "You don't have permission."
