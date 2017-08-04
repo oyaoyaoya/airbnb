@@ -4,7 +4,7 @@
   <!-- image -->
     <div class="row">
       <div class="col-md-12">
-        <% image_tag @photos[0].image.url(), class: "img-responsive" if @photos.length > 0 %>
+        <%= image_tag @photos[0].image.url(), class: "img-responsive" if @photos.length > 0 %>
       </div>
     </div>
 
@@ -18,6 +18,7 @@
             <%= image_tag avatar_url(@room.user), class: "img-circle avatar-large" %><br><br>
             <%= @room.user.fullname %>
           </div>
+        </div>
 
       <div class="col-md-9">
         <h4><%= @room.listing_name %></h4>
@@ -58,9 +59,8 @@
 
       <div class="col-md-4">
         <!-- reservation form-->
-        <%= render 'reservation/form' %>
+        <%= render 'reservations/form' %>
       </div>
-    </div>
 
     <!-- about -->
     <div class="row">
@@ -98,34 +98,35 @@
         
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
-        <% if @photos %>
-        <ol class="carousel-indicators">
-        <% @photos.each do |photo| %>
-          <li data-target="#myCarousel" data-slide-to="<%= photo.id %>"></li>
-        <% end %>
-        </ol>
-
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner">
           <% if @photos %>
-            <% @photos.each do |photo| %>
-              <div class="item <%= 'active' if photo.id == @photos[0].id %>">
-                <%= image_tag photo.img.url() %>
-              </div>
-            <% end %>
+            <ol class="carousel-indicators">
+              <% @photos.each do |photo| %>
+                <li data-target="#myCarousel" data-slide-to="<%= photo.id %>"></li>
+              <% end %>
+            </ol>
           <% end %>
-        </div>
 
-        <!-- Left and right controls -->
-        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-          <span class="glyphicon glyphicon-chevron-left"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="right carousel-control" href="#myCarousel" data-slide="next">
-          <span class="glyphicon glyphicon-chevron-right"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner">
+            <% if @photos %>
+              <% @photos.each do |photo| %>
+                <div class="item <%= 'active' if photo.id == @photos[0].id %>">
+                  <%= image_tag photo.image.url() %>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+
+          <!-- Left and right controls -->
+          <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
 
       </div>
     </div>
@@ -136,30 +137,41 @@
     <!-- google map -->
     <div class="row">
       <div class="col-md-12">
-        
-        <div id="map"></div>
-        <style>
-          #map {
-            width: 100%;
-            height: 400px;
-          }
-        </style>
 
-      <script>
+          <div id="map"></div>
+            <script>
+              function initMap() {
+                var uluru = {<%= @room.latitude %>, <%= @room.longitude %>};
+                var map = new google.maps.Map(document.getElementById('map'), {
+                  zoom: 4,
+                  center: uluru
+                });
+                var marker = new google.maps.Marker({
+                  position: uluru,
+                  map: map
+                });
+              }
+            </script>
+            <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDUvkD0jx2F2Qi06SZxJx-chVl0g-USk-w&callback=initMap">
+            </script>
+
+
+<!--       <script>
         function initMap() {
-          var uluru = (<%= room.latitude %>, <%= room.longitude %>);
+          var roomlocation = (<%= @room.latitude %>, <%= @room.longitude %>);
           var map = new google.maps.Map(document.getElementById('map'), {
             zoom: 14,
-            center: uluru
+            center: roomlocation
           });
           var marker = new google.maps.Marker({
-            position: uluru,
+            position: roomlocation,
             title: "airbnb"
             map: map
           })
           marker.setMap(map);
         }
-      </script>
+      </script> -->
 
       </div>
     </div>
@@ -167,12 +179,11 @@
     <!-- closeby rooms -->
     <h3>Nearby</h3>
     <div class="row">
-      <% for room in @room.neabys(10) %>
-
+      <% for room in @room.nearbys(10) %>
         <div class="col-md-4">
           <div class="panel panel-default">
             <div class="panel-heading preview">
-              <%= image_tag room.photos[0].image.url(:medium) %>
+              <%= image_tag room.photos[0].image.url(:medium) if @photos.length > 0 %>
             </div>
             <div class="panel-body">
               <%= link_to room.listing_name, room %><br>
@@ -184,6 +195,4 @@
     </div>
 
   </div>
-</div>
-</div>
 </div>
