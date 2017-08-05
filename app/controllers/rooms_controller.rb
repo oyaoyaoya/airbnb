@@ -9,7 +9,7 @@ before_action :is_authorised, only: [:listing, :pricing, :description, :photo_up
 
   def show
     @photos = @room.photos
-
+    @guest_reviews = @room.guest_reviews
   end
 
   def new
