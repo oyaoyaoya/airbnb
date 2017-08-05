@@ -1,69 +1,30 @@
-<!-- <script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '454891201535346',
-      cookie     : true,
-      xfbml      : true,
-      version    : 'v2.8'
-    });
-    FB.AppEvents.logPageView();   
-  };
-
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-</script> -->
-
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10&appId=454891201535346";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-
-
 <div class="row">
-  <div class="col-md6 col-md-offset-3 text-center">
+  <div class="col-md-4 col-md-offset-4">
 
-<!-- <%= link_to "sign in with Facebook", user_facebook_omniauth_authorize_path, class: "btn btn-primary" %> -->
-
-<div class="fb-login-button" data-width="504" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
-
-    <h2>Sign up</h2>
+    <h2 class="text-center">Sign up</h2>
+    <br/>
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= render 'shared/devisemes' %>
 
-        <div class="form-group">
-          <%= f.text_field :fullname, autofocus: true, class: "form-control", placeholder: "Full Name" %>
-        </div>
+      <div class="form-group">
+        <%= f.text_field :fullname, autofocus: true, placeholder: "Full Name", class: "form-control" %>
+      </div>
 
-        <div class="form-group">
-          <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "Email" %>
-        </div>
+      <div class="form-group">
+        <%= f.email_field :email, autofocus: true, placeholder: "Email", class: "form-control" %>
+      </div>
 
-        <div class="form-group">
-          <% if @validatable %>
-          <em>(<%= @minimum_password_length %> characters minimum)</em>
-          <% end %><br />
-          <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Password" %>
-        </div>
+      <div class="form-group">
+        <%= f.password_field :password, autocomplete: "off", placeholder: "Password", class: "form-control" %>
+      </div>
 
-          <% if devise_mapping.rememberable? %>
-            <div class="form-group">
-              <%= f.check_box :remember_me %>Remember me
-            </div>
-          <% end %>
+      <div class="actions">
+        <%= f.submit "Sign up", class: "btn btn-normal btn-block" %>
+      </div>
+    <% end %>
 
-        <div class="actions">
-          <%= f.submit "Sign up", class: "btn btn-primary" %>
-        </div>
-    <% end %> 
+    <hr/>
+    <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path, class: "btn btn-facebook btn-block" %>
   </div>
 </div>

@@ -1,12 +1,11 @@
 <div class="row">
-<div class="col-md-3">
-  <ul class="sidebar-list">
-    <li class="sidebar-item"><%= link_to "Edit Profile", edit_user_registration_path, class: "sidebar-link active" %>
-    </li>
-  </ul>
-  <br>
-  <%= link_to "View My Profile", user_path(current_user.id), class: "btn btn-default wide" %>
-</div>
+  <div class="col-md-3">
+    <ul class="sidebar-list">
+      <li class="sidebar-item"><%= link_to "Edit Profile", edit_user_registration_path, class: "sidebar-link active" %></li>
+    </ul>
+    <br>
+    <%= link_to "View My Profile", user_path(current_user.id), class: "btn btn-default" %>
+  </div>
 
   <div class="col-md-9 text-center">
     <div class="panel panel-default">
@@ -21,14 +20,15 @@
             </div>
 
             <div class="form_group">
-              <%= f.email_field :email, class: "form-control", placeholder: "Email" %>
+              <%= f.text_field :phone_number, class: "form-control", placeholder: "Phone Number" %>
             </div>
 
             <div class="form_group">
-              <%= f.text_field :phone_number, class: "form-control", placeholder: "Phone Number" %>
-            </div>
-            <div class="form_group">
               <%= f.text_field :description, rows: 5, cols: 25, class: "form-control", placeholder: "Description" %>
+            </div>
+
+            <div class="form_group">
+              <%= f.email_field :email, class: "form-control", placeholder: "Email" %>
             </div>
 
             <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -40,11 +40,11 @@
             </div>
 
             <div class="form-group">
-              <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "Confirm New password" %>
+              <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "Confirm Password" %>
             </div>
 
             <div class="actions">
-              <%= f.submit "Save", class: "btn btn-primary" %>
+              <%= f.submit "Save", class: "btn btn-normal btn-block" %>
               <% end %>
             </div>
     </div>
