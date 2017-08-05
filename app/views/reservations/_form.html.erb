@@ -43,8 +43,8 @@
   }
 
 $(function() {
-    unavailableDates = [];
-    $.ajax({
+  unavailableDates = [];
+  $.ajax({
       url: '/preload',
       data: {'room_id': <%= @room. id %>},
       dataType: 'json',
@@ -76,9 +76,9 @@ $(function() {
             var end_date = $(this).datepicker('getDate');
 
             var input = {
-              'start_date': start_date;
-              'end_date': end_date;
-              'room_id': <%= @room.id %>;
+              'start_date': start_date,
+              'end_date': end_date,
+              'room_id': <%= @room.id %>
             }
             $.ajax ({
               url: "/preview",
@@ -94,11 +94,10 @@ $(function() {
                   $('#btn_book').attr('disabled', false);
                 }
                 }
-              }
-            })
-          }
+              })
+            }
           })
-      }
+        }
+      })
     })
-  })
 </script>
