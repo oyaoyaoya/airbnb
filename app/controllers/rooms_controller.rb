@@ -8,6 +8,7 @@ before_action :authenticate_user!, except: [:show]
 
   def show
     @photos = @room.photos
+
   end
 
   def new
@@ -17,16 +18,10 @@ before_action :authenticate_user!, except: [:show]
   def create
     @room = current_user.rooms.build(room_params)
     if @room.save
-        if params[:images]
-          params[:images].each do |image|
-            @room.photos.create(image: image)
-          end
-        end
-
-      @photos = @room.photos
-      redirect_to edit_room_path(@room), notice: "Saved..."
+      redirect_to listing_room_path(@room), notice: "Saved.."
     else
-      render :new, notice: "Something wrong, Please try again"
+      flash[:alert] = "Something went wrong..."
+      render :new
     end
   end
 
@@ -39,16 +34,37 @@ before_action :authenticate_user!, except: [:show]
   end
 
   def update
-    if @room.update(room_params)
-      if params[:images]
-          params[:images].each do |image|
-            @room.photos.create(image: image)
-          end
-        end
-      redirect_to edit_room_path(@room), notice: "Updated..."
+    new_params = room_params
+    new_params = room_params.merge(active: true) if is_ready_room
+
+    if @room.update(new_params)
+      flash[:notice] = "Saved..."
     else
-      render :edit
+      flash[:alert] = "Something went wrong..."
     end
+    redirect_back(fallback_location: request.referer)
+  end
+
+    def preload
+    today = Date.today
+    reservations = @room.reservations.where("start_date >= ? OR end_date >= ?", today, today)
+
+    render json: reservations
+  end
+
+  def preview
+    start_date = Date.parse(params[:start_date])
+    end_date = Date.parse(params[:end_date])
+
+    output = {
+      conflict: is_conflict(start_date, end_date, @room)
+    }
+
+    render json: output
+  end
+
+  def photo_upload
+    @photos = @room.photos
   end
 
   private
