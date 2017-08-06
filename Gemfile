@@ -24,6 +24,7 @@ gem 'paperclip'
 gem 'geocoder'
 gem 'jquery-ui-rails'
 gem 'font-awesome-sass'
+gem 'ransack'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
