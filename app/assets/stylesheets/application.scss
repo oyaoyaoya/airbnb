@@ -5,15 +5,32 @@
 body {
   color: #565a5c;
   background-color: #F8F8F8;
-  font-family: "Varela Round", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-family: "Century Gothic", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 }
+
 
 a {
   color: #00A699;
 }
 
+.annotation {
+  color: DarkGray;
+}
+
 .container {
   width: 80%;
+  padding: 0px, 0px;
+  margin: 0px, 0px;
+}
+.panel-right {
+  float: right;
+    width: 70%;
+}
+.panel-left {
+  float: left;
+  text-align: right;
+  width: 20%;
+  margin: auto 10px;
 }
 
 .text-babu, .icon-babu {
@@ -35,15 +52,25 @@ a {
   font-weight: 400;
 }
 
+.navbar-inbetween {
+  margin: 0px 0px;
+  height: 30px;
+}
+
 .navbar-default li {
-  line-height: 50px;
+  line-height: 30px;
   display: block;
   margin: auto 10px;
 }
 
 .navbar-left {
-  height: 34px;
-  margin: 15px auto;
+  margin: 15px 0px;
+}
+
+.navbar-nav li a {
+  display: block;
+  line-height: 30px;
+  height: 64px;
 }
 
 .subnav-item {
@@ -62,23 +89,25 @@ a {
 }
 
 // BUTTONS
-.btn-block {
-  display: block;
-  white-space: normal;
-  width: 100%;
-}
-
 .btn {
   color: #fff;
   border-radius: 5px;
   font-weight: bold;
-  padding: 9px 27px;
+  padding: auto auto;
+  text-align: center;
 }
 
-.btn-small {
-  padding: 5px 15px;
-  margin-top: 15px;
+.btn-block {
+  display: block;
+  white-space: normal;
 }
+
+.btn.btn-normal {
+  border: 1px solid #ff5a5f;
+  background-color: #ff5a5f;
+  padding: auto 5px;
+}
+
 
 .btn:hover, .btn:focus {
   color: #fff;
@@ -92,11 +121,6 @@ a {
   border-radius: 2px;
   padding: 10px 0;
   margin-top: 10px;
-}
-
-.btn.btn-normal {
-  border: 1px solid #ff5a5f;
-  background-color: #ff5a5f;
 }
 
 .btn.btn-normal:active {
@@ -129,8 +153,8 @@ a {
 
 // PANELS
 .panel-default .panel-heading {
-  color: #ffffff;
-  background-color: #008489;
+  color: #484848;
+  background-color: #edefed;
   font-size: 18px;
   font-weight: 400;
 }
@@ -182,27 +206,22 @@ a {
 .form-control {
   border-radius: 2px;
   height: 4rem;
-  font-family: FontAwesome;
-  font-style: normal;
-  font-weight: normal;
-  text-decoration: inherit;
-  width: 190px;
 }
 
 .form-group input {
   height: 34px;
-  border: 1px solid #00A699;
+  border: 1px solid #DBDBDB;
 }
 
 .form-group textarea {
-  border: 1px solid #00A699;
+  border: 1px solid #DBDBDB;
 }
 
 .form-group select {
   width: 100%;
   color: #565a5c;
   background-color: white;
-  border: 1px solid #00A699;
+  border: 1px solid #aaa;
   border-radius: 2px;
   padding: 10px;
   appearance: none;
@@ -214,7 +233,7 @@ a {
   content: '\25bc';
   font-size: 1.2em;
   position: absolute;
-  color: #00A699;
+  color: #aaa;
   top: 35px;
   right: 30px;
   transform: scale(0.94, 0.62);
@@ -254,6 +273,7 @@ a {
   color: #82888a;
 }
 
+
 .sidebar-link {
   color: #82888a;
   text-decoration: none;
@@ -268,6 +288,10 @@ a {
   color: #565A5C;
   font-weight: bold;
   text-decoration: none;
+}
+
+.inactive.sidebar-link{
+  color: #DardGray;
 }
 
 // PHOTO UPLOAD
@@ -330,7 +354,7 @@ a {
 .form-control.datepicker {
   color: #00A699;
   background-color: white;
-  border: 1px solid #00A699;
+  border: 1px solid #DBDBDB;
   text-align: center;
 }
 

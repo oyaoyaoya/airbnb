@@ -1,55 +1,135 @@
-<div class="row">
-  <div class="col-md-3">
-    <ul class="sidebar-list">
-      <li class="sidebar-item"><%= link_to "Edit Profile", edit_user_registration_path, class: "sidebar-link active" %></li>
-    </ul>
-    <br>
-    <%= link_to "View My Profile", user_path(current_user.id), class: "btn btn-default" %>
-  </div>
 
-  <div class="col-md-9 text-center">
-    <div class="panel panel-default">
-      <div class="panel-heading">Your Profile</div>
-      <div class="panel-body">
-        <div class="container">
-          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-          <%= render 'shared/devisemes' %>
+<div class="col-md-3">
+  <ul class="sidebar-list">
+    <li class="sidebar-item"><%= link_to "Edit Profile", edit_user_registration_path, class: "sidebar-link active" %></li>
+    <li class="sidebar-item"><%= link_to "Photos and Video", root_path, class: "sidebar-link inactive" %></li>
+    <li class="sidebar-item"><%= link_to "Trust and Verification", root_path, class: "sidebar-link inactive" %></li>
+    <li class="sidebar-item"><%= link_to "Reviews", root_path, class: "sidebar-link inactive" %></li>
+    <li class="sidebar-item"><%= link_to "References", root_path, class: "sidebar-link inactive" %></li>
+  </ul>
+  <br>
+  <%= link_to "View Profile", user_path(current_user.id), class: "btn btn-default" %>
+</div>
 
-            <div class="form_group">
-              <%= f.email_field :fullname, autofocus: true, class: "form-control", placeholder: "Full Name" %>
+<div class="col-md-8">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= render 'shared/devisemes' %>
+      <div class="panel panel-default">
+        <div class="panel-heading">Required</div>
+          <div class="panel-body">
+            <div class="panel-left">
+              <p>Fullname</p>
             </div>
-
-            <div class="form_group">
-              <%= f.text_field :phone_number, class: "form-control", placeholder: "Phone Number" %>
+            <div class="panel-right">
+              <div class="form_group">
+                <%= f.text_field :fullname, autofocus: true, class: "form-control" %>
+              </div>
+              <p style="line-height:6px;"></p>
+              <p class="annotation">Your public profile only shows your first name. When you request a booking, your host will see your first and last name.</p>
             </div>
+          </div>
 
-            <div class="form_group">
-              <%= f.text_field :description, rows: 5, cols: 25, class: "form-control", placeholder: "Description" %>
+          <div class="panel-body">
+            <div class="panel-left">
+              <p>Phone Number</p>
             </div>
+            <div class="panel-right">
+              <div class="form_group">
+                <%= f.text_field :phone_number, class: "form-control" %>
+                <p style="line-height:6px;"></p>
+                <p class="annotation">This is only shared once you have a confirmed booking with another Airbnb user. This is how we can all get in touch.</p>
+              </div>
+            </div>
+          </div>
 
-            <div class="form_group">
-              <%= f.email_field :email, class: "form-control", placeholder: "Email" %>
+          <div class="panel-body">
+            <div class="panel-left">
+              <p>Email</p>
             </div>
+            <div class="panel-right">
+              <div class="form_group">
+                <%= f.email_field :email, class: "form-control" %>
+              </div>
+              <p style="line-height:6px;"></p>
+              <p class="annotation">We won’t share your private email address with other Airbnb users.</p>
+            </div>
+          </div>
 
             <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
               <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+              <br>
             <% end %>
 
-            <div class="form-group">
-              <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "New password (leave here blank if you don't want to change it)" %>
+          <div class="panel-body">
+            <div class="panel-left">
+              <p>New password</p>
             </div>
+            <div class="panel-right">
+              <div class="form-group">
+                <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "(leave here blank if you don't want to change it)" %>
+              </div>
+            </div>
+          </div>
 
-            <div class="form-group">
-              <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "Confirm Password" %>
+          <div class="panel-body">
+            <div class="panel-left">
+              <p>Confirm Password</p>
             </div>
+            <div class="panel-right">
+              <div class="form-group">
+                <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+              </div>
+            </div>
+          </div>
 
-            <div class="actions">
-              <%= f.submit "Save", class: "btn btn-normal btn-block" %>
-              <% end %>
+          <div class="panel-body">
+            <div class="panel-left">
+              <p>Description</p>
             </div>
+            <div class="panel-right">
+              <div class="form_group">
+                <%= f.text_field :description, rows: 5, cols: 25, class: "form-control" %>
+                <p style="line-height:6px;"></p>
+                <p class="annotation">Airbnb is built on relationships. Help other people get to know you.<br>Tell them about the things you like: What are 5 things you can’t live without? Share your favorite travel destinations, books, movies, shows, music, food.<br>Tell them what it’s like to have you as a guest or host: What’s your style of traveling? Of Airbnb hosting?<br>Tell them about you: Do you have a life motto?</p>
+              </div>
+            </div>
+          </div>
+
+            <br>
+      </div>
+
+    <div class="panel panel-default">
+      <div class="panel-heading">Optional</div>
+        <div class="panel-body">
+          <div class="panel-left">
+            <p>School</p>
+          </div>
+          <div class="panel-right">
+            <div class="form_group">
+              <%= f.text_field :description, autofocus: true, class: "form-control", placeholder: "TBD", disabled: true %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <div class="panel panel-default">
+      <div class="panel-heading">Business Travel</div>
+        <div class="panel-body">
+          <div class="panel-left">
+            <p>Work Email Address</p>
+          </div>
+          <div class="panel-right">
+          <div class="form_group">
+            <%= f.text_field :description, autofocus: true, class: "form-control", placeholder: "TBD", disabled: true %>
+            <p style="line-height:6px;"></p>
+            <p class="annotation">Add your work email and get a $50 credit after taking your first business trip of $75 or more.</p>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
 
-
-  </div>
+    <div class="actions">
+      <%= f.submit "Save", class: "btn btn-normal" %>
+    </div>
+  <% end %>
 </div>
