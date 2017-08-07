@@ -68,6 +68,40 @@ before_action :is_authorised, only: [:listing, :pricing, :description, :photo_up
     @photos = @room.photos
   end
 
+  def preload
+    today = Date.today
+    reservations = @room.reservations.where("start_date >= ? OR end_date >= ?", today, today)
+
+    render json: reservations
+  end
+
+  def preview
+    start_date = Date.parse(params[:start_date])
+    end_date = Date.parse(params[:end_date])
+
+    output = {
+      conflict: is_conflict(start_date, end_date, @room)
+    }
+
+    render json: output
+  end
+  
+  def listing
+  end
+
+  def pricing
+  end
+
+  def description
+  end
+
+
+  def amenities
+  end
+
+  def location
+  end
+
   private
     def set_room
       @room = Room.find(params[:id])
