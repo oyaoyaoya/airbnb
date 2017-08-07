@@ -1,7 +1,13 @@
+<br>
 <footer class="footer">
+<hr>
+<br>
+
   <div class="container">
     <div class="footer-body">
-        <ul class="footer-section">
+    <br>
+    <div class="footer-section">
+        <ul class="footer-left">
           <p>Airbnb</p>
             <li>
               <%= link_to "About us", src="https://www.airbnb.com/about/about-us" %>
@@ -22,8 +28,10 @@
               <%= link_to "Diversity & Belonging", src="https://www.airbnb.com/diversity"  %>
             </li>
         </ul>
+    </div>
 
-        <ul class="footer-section">
+    <div class="footer-section">
+        <ul class="footer-left">
           <p>Discover</p>
             <li>
               <%= link_to "Trust & Safety", src="https://www.airbnb.com/trust" %>
@@ -47,8 +55,10 @@
               <%= link_to "Airbnbmag", src="https://airbnbmag.com/" %>
             </li>
         </ul>
+      </div>
 
-        <ul class="footer-section">
+    <div class="footer-section">
+        <ul class="footer-left">
           <p>Hosting</p>
             <li>
               <%= link_to "Why Host", src="https://www.airbnb.com/host/homes?from_footer=1" %>
@@ -64,13 +74,18 @@
             </li>
         </ul>
       </div>
-        <hr>
+    </div>
+  </div>
+  
+  <br>
+
+  <div class="container">
+      <hr>
+
       <div class="footer-bottom">
-        <p class="footer-left">
-          <p>© Airbnb, Inc.</p>
-        </p>
-        <p class="footer-right">
-          <ul class="footer-section">
+          <%= image_tag "https://s.gravatar.com/avatar/e90c5b356d93f510fb660e271ec62782?s=80", class: "image-circle avatar-small avatar-gray" %>
+          <p class="footer-left">&nbsp;&nbsp;© Airbnb, Inc.</p>
+          <ul class="footer-right">
             <li>
               <%= link_to "Terms", src="https://www.airbnb.com/terms" %>
             </li>
@@ -81,7 +96,6 @@
               <%= link_to "Site Map", src="https://www.airbnb.com/sitemaps" %>
             </li>
           </ul>
-        </p>
       </div>
-  </div>
+    </div>
 </footer>

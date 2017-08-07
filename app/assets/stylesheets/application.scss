@@ -2,6 +2,7 @@
 @import "bootstrap";
 @import "toastr";
 @import "./buttons";
+@import "./footer";
 @import "./forms";
 @import "./rooms";
 @import "./navbar";
@@ -26,33 +27,6 @@ a {
   width: 80%;
   padding: 0px, 0px;
   margin: 0px, 0px;
-}
-
-.footer-section {
-  float: left;
-  text-decoration: none;
-  list-style: none;
-  width: 166px;
-  margin:0px 0px 0px 60px;
-}
-
-.footer-body {
-  clrear: both;
-}
-
-.footer-left {
-  float: left;
-  width: 166px;
-}
-
-.footer-left {
-  float: right;
-  width: 166px;
-}
-
-.footer-section li a {
-  text-decoration: none;
-  color: DarkGray;
 }
 
 .panel-right {
@@ -106,7 +80,7 @@ a {
 
 // AVATAR
 .avatar-small {
-  width: 28px;
+  width: 20.5px;
 }
 
 .avatar-medium {
