@@ -18,7 +18,13 @@
 
       <ul class="nav navbar-nav navbar-right">
         <li>
-            <%= link_to "Become a host", new_room_path %>
+          <%= link_to "Become a host", new_room_path %>
+        </li>
+        <li>
+          <%= link_to "Trips", your_trips_path %>
+        </li>
+        <li>
+          <%= link_to "Messages (under construction)", root_path %>
         </li>
         <li>
           <%= link_to "Help", root_path %>
@@ -32,15 +38,17 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"
                     role="button" aria-haspopup="true" aria-expanded="false">
                     <%= image_tag avatar_url(current_user), class: "img-circle avatar-small" %>&nbsp;
-                    <%= current_user.fullname %> <span class="caret"></span>
               </a>
               <ul class="dropdown-menu">
+                <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
+                <li>Travel Credit (under construction)</li>
+                <li>Account Settings (under construction)</li>
+                <li>My Guidebook (under construction)</li>
+                <li>Business Travel (under construction)</li>
                 <li><%= link_to "Manage Listing", rooms_path %></li>
                 <li><%= link_to "List Your Space", new_room_path %></li>
                 <li><%= link_to "Your Reservations", your_reservations_path %></li>
-                <li><%= link_to "Your Trips", your_trips_path %></li>
                 <li role="separator" class="divider"></li>
-                <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
                 <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
               </ul>
             </li>
@@ -49,3 +57,19 @@
     </div>
   </div>
 </nav>
+
+<% if (user_signed_in?) && !current_page?(root_path) && !current_page?("/rooms/#{params[:id]}")%>
+    <nav class="navbar navbar-default" style="background-color: #484848">
+      <div class="container">
+        <ul class="nav navbar-nav">
+          <li>Dashboard</li>
+          <li <% if current_page?(rooms_path) %> class="active" <% end %> ><%= link_to "Manage Listings", rooms_path %></li>
+          <li>Messages</li>
+          <li>Revenues</li>
+          <li>Host Calendar</li>
+          <li>Account Settings</li>
+        </ul>
+      </div>
+    </nav>
+<% end %>
+
