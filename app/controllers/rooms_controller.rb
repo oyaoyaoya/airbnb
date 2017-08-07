@@ -73,9 +73,9 @@ before_action :is_authorised, only: [:listing, :pricing, :description, :photo_up
       @room = Room.find(params[:id])
     end
     def room_params
-      params.require(:room).permit(:home_type, :room_type, :accomodate, :bed_room, :bath_room, :listing_name, :summary, :address, :is_tv, :is_kitchen, :is_air, :is_heating, :is_internet, :price, :active)
+      params.require(:room).permit(:home_type, :room_type, :accommodate, :bed_room, :bath_room, :listing_name, :summary, :address, :is_tv, :is_kitchen, :is_air, :is_heating, :is_internet, :price, :active)
     end
-    
+
     def is_conflict(start_date, end_date, room)
       check = room.reservations.where("? < start_date AND end_date < ?", start_date, end_date)
       check.size > 0? true : false
