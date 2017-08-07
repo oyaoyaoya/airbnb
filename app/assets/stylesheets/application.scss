@@ -9,7 +9,7 @@
 
 body {
   color: #565a5c;
-  background-color: #F8F8F8;
+  background-color: white;
   font-family: "Century Gothic", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 }
 
@@ -27,6 +27,20 @@ a {
   padding: 0px, 0px;
   margin: 0px, 0px;
 }
+
+.footer-section {
+  float: left;
+  text-decoration: none;
+  list-style: none;
+  width: 166px;
+  margin:0px 0px 0px 60px;
+}
+
+.footer-section li a {
+  text-decoration: none;
+  color: DarkGray;
+}
+
 .panel-right {
   float: right;
     width: 70%;
