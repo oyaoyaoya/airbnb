@@ -71,9 +71,25 @@
       </ul>
     </div>
 
+  <% if current_page?(root_path) %>
+    <nav class="navbar-inbetween" >
+      <ul class="nav navbar-nav subnav-item">
+        <li>
+          <%= link_to "FOR YOU", root_path %>
+        </li>
+        <li>
+          <%= link_to "HOMES", search_path %>
+        </li>
+        <li>
+          <%= link_to "EXPERIENCE", root_path %>
+        </li>
+      </ul>
+      </nav>
+  <% end %>
+
   <% if (user_signed_in?) && !current_page?(root_path) && !current_page?("/rooms/#{params[:id]}")%>
 
-      <nav class="navbar navbar-inbetween" style="background-color: #484848">
+      <nav class="navbar-inbetween" style="background-color: #484848">
         <div class="container">
           <ul class="nav navbar-nav subnav-item">
             <li><%= link_to "Dashboard (TBD)", root_path, disabled: true %></li>
