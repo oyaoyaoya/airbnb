@@ -35,6 +35,32 @@ a {
   font-weight: 400;
 }
 
+.navbar-default li {
+  line-height: 50px;
+  display: block;
+  margin: auto 10px;
+}
+
+.navbar-left {
+  height: 34px;
+  margin: 15px auto;
+}
+
+.subnav-item {
+  color: #bbb
+}
+
+#mainlogo {
+  width: 82px;
+  display: block;
+  text-align: center;
+  line-height: 64px;
+}
+
+.icon-gray {
+  float: left;
+}
+
 // BUTTONS
 .btn-block {
   display: block;
@@ -137,7 +163,7 @@ a {
 }
 
 .avatar-medium {
-  width: 48px;
+  width: 34px;
 }
 
 .avatar-large {
@@ -156,10 +182,15 @@ a {
 .form-control {
   border-radius: 2px;
   height: 4rem;
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: inherit;
+  width: 190px;
 }
 
 .form-group input {
-  height: 45px;
+  height: 34px;
   border: 1px solid #00A699;
 }
 

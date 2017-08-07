@@ -1,5 +1,4 @@
 <nav class="navbar navbar-default navbar-static-top">
-  <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
         <span class="sr-only">Toggle navigation</span>
@@ -7,13 +6,23 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/"><%= image_tag "https://s.gravatar.com/avatar/e90c5b356d93f510fb660e271ec62782?s=80", class: "image-circle avatar-small" %></a>
+        <a id="mainlogo" href="/"><%= image_tag "https://s.gravatar.com/avatar/e90c5b356d93f510fb660e271ec62782?s=80", class: "image-circle avatar-medium" %>
+        </a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <%= form_tag search_path, class: "navbar-form navbar-left", method: :get do %>
           <div class="form-group">
+<!--             <div class="icon-gray">
+              <i class="fa fa-search" aria-hidden="true"></i>
+            </div> -->
             <%= text_field_tag :search, params[:search], placeholder: "Anywhere", class: "form-control" %>
           </div>
+<!--             <div class="icon-gray">
+              <i class="fa fa-calendar-o" aria-hidden="true"></i>
+            </div>
+            <div class="icon-gray">
+              <i class="fa fa-users" aria-hidden="true"></i>
+            </div> -->
       <% end %>
 
       <ul class="nav navbar-nav navbar-right">
@@ -24,7 +33,7 @@
           <%= link_to "Trips", your_trips_path %>
         </li>
         <li>
-          <%= link_to "Messages (under construction)", root_path %>
+          <%= link_to "Messages (TBD)", root_path %>
         </li>
         <li>
           <%= link_to "Help", root_path %>
@@ -41,10 +50,10 @@
               </a>
               <ul class="dropdown-menu">
                 <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
-                <li>Travel Credit (under construction)</li>
-                <li>Account Settings (under construction)</li>
-                <li>My Guidebook (under construction)</li>
-                <li>Business Travel (under construction)</li>
+                <li>Travel Credit (TBD)</li>
+                <li>Account Settings (TBD)</li>
+                <li>My Guidebook (TBD)</li>
+                <li>Business Travel (TBD)</li>
                 <li><%= link_to "Manage Listing", rooms_path %></li>
                 <li><%= link_to "List Your Space", new_room_path %></li>
                 <li><%= link_to "Your Reservations", your_reservations_path %></li>
@@ -55,13 +64,12 @@
         <% end %>
       </ul>
     </div>
-  </div>
 </nav>
 
 <% if (user_signed_in?) && !current_page?(root_path) && !current_page?("/rooms/#{params[:id]}")%>
     <nav class="navbar navbar-default" style="background-color: #484848">
       <div class="container">
-        <ul class="nav navbar-nav">
+        <ul class="nav navbar-nav subnav-item">
           <li>Dashboard</li>
           <li <% if current_page?(rooms_path) %> class="active" <% end %> ><%= link_to "Manage Listings", rooms_path %></li>
           <li>Messages</li>
