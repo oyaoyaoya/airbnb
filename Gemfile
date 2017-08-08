@@ -26,6 +26,9 @@ gem 'jquery-ui-rails'
 gem 'font-awesome-sass'
 gem 'ransack'
 gem 'mechanize'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'fog'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -44,9 +47,6 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'pry-rails'
-  gem 'carrierwave'
-  gem 'mini_magick'
-  gem 'fog'
 end
 
 group :production do
