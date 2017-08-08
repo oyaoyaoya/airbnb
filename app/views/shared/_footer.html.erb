@@ -109,12 +109,22 @@
   <br>
 
   <div class="container">
-      <hr>
+    <hr>
 
-      <div class="footer-bottom">
+    <div class="footer-bottom">
+      <div class="footer-left col-md-4">
           <%= image_tag "https://s.gravatar.com/avatar/e90c5b356d93f510fb660e271ec62782?s=80", class: "image-circle avatar-small avatar-gray" %>
-          <p class="footer">&nbsp;&nbsp;© Airbnb, Inc.</p>
-          <ul class="footer-right">
+          <p>&nbsp;&nbsp;© Airbnb, Inc.</p>
+      </div>
+
+          <p class="footer-right">
+          &nbsp;
+              <i class="fa fa-facebook fa-lg">&nbsp;</i>
+              <i class="fa fa-twitter fa-lg">&nbsp;</i>
+              <i class="fa fa-instagram fa-lg">&nbsp;</i>
+          </p>
+
+          <ul class="footer-right table-ul">
             <li>
               <%= link_to "Terms", src="https://www.airbnb.com/terms" %>
             </li>
@@ -125,6 +135,7 @@
               <%= link_to "Site Map", src="https://www.airbnb.com/sitemaps" %>
             </li>
           </ul>
+
       </div>
     </div>
 </footer>

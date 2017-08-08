@@ -8,7 +8,7 @@
         <div class="panel-heading">
           Listing
         </div>
-
+      <br>
         <div class="panel-body">
           <div class="container">
             <%= form_for @room do |f| %>
@@ -38,7 +38,9 @@
                                   id: "accommodate", prompt: "Select...", class: "form-control" %>
                   </div>
                 </div>
-
+              </div>
+            <br>
+              <div class="row">
                 <div class="col-md-4 select">
                   <div class="form-group">
                     <label>Bedrooms</label>
@@ -56,9 +58,9 @@
                 </div>
 
               </div>
-
+            <br>
               <div><%= f.submit "Save", class: "btn btn-normal" %></div>
-
+            <br>
             <% end %>
           </div>
         </div>

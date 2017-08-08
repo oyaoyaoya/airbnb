@@ -11,7 +11,6 @@
   float: right;
   text-decoration: none;
   list-style: none;
-  width: 500px;
   text-align: center;
 }
 
@@ -19,17 +18,17 @@
   display: inline-block;
 }
 
+.footer-left {
+  float: left;
+}
+
 .footer-bottom {
   clear: both;
+  color: DarkGray;
 }
 
 .avatar-gray {
   float: left;
-  color: DarkGray;
-}
-
-.avatar-gray {
-  color: DarkGray;
 }
 
 li {
@@ -43,4 +42,16 @@ select {
   border: 1px solid #dbdbdb;
   background-color: white;
   border-radius: 0px 0px 0px 0px;
+}
+
+.table-ul {
+  display: table;
+  table-layout: fixed;
+  width: 21%;
+}
+
+.table-ul li {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: left;
 }
