@@ -6,8 +6,37 @@
   <div class="container">
     <div class="footer-body">
     <br>
-    <div class="footer-section">
-        <ul class="footer-left">
+  <div class="col-md-3">
+    <!-- SELECTMENU -->
+    <div class="selectmenu">
+      <form action="#">
+
+        <fieldset>
+          <select name="language" id="language">
+            <option selected="selected">English</option>
+            <option>Espanol</option>
+            <option>Japanese</option>
+            <option></option>
+            <option></option>
+            <option></option>
+          </select>
+       </fieldset>
+       <br>
+       <fieldset>
+          <select name="currency" id="currency">
+            <option selected>USD</option>
+            <option>EUR</option>
+            <option>JPY</option>
+          </select>
+        </fieldset>
+       
+      </form>
+    </div>
+  </div>
+
+
+    <div class="col-md-3">
+        <ul class="footer">
           <p>Airbnb</p>
             <li>
               <%= link_to "About us", src="https://www.airbnb.com/about/about-us" %>
@@ -30,8 +59,8 @@
         </ul>
     </div>
 
-    <div class="footer-section">
-        <ul class="footer-left">
+    <div class="col-md-3">
+        <ul class="footer">
           <p>Discover</p>
             <li>
               <%= link_to "Trust & Safety", src="https://www.airbnb.com/trust" %>
@@ -57,8 +86,8 @@
         </ul>
       </div>
 
-    <div class="footer-section">
-        <ul class="footer-left">
+    <div class="col-md-3">
+        <ul class="footer">
           <p>Hosting</p>
             <li>
               <%= link_to "Why Host", src="https://www.airbnb.com/host/homes?from_footer=1" %>
@@ -84,7 +113,7 @@
 
       <div class="footer-bottom">
           <%= image_tag "https://s.gravatar.com/avatar/e90c5b356d93f510fb660e271ec62782?s=80", class: "image-circle avatar-small avatar-gray" %>
-          <p class="footer-left">&nbsp;&nbsp;© Airbnb, Inc.</p>
+          <p class="footer">&nbsp;&nbsp;© Airbnb, Inc.</p>
           <ul class="footer-right">
             <li>
               <%= link_to "Terms", src="https://www.airbnb.com/terms" %>

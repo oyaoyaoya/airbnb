@@ -1,23 +1,10 @@
 //FOOTER
-
-.footer-section {
-  float: left;
-  list-style: none;
-  width: 166px;
-  margin:0px 0px 0px 60px;
-}
-
 .footer-body {
   width: 100%;
 }
 
 .footer li a {
   color: DarkGray;
-}
-
-.footer-left {
-  float: left;
-  width: 500px;
 }
 
 .footer-right {
@@ -49,4 +36,11 @@ li {
   list-style: none;
 }
 
-
+select {
+  float: left;
+  width: 244px;
+  height: 46px;
+  border: 1px solid #dbdbdb;
+  background-color: white;
+  border-radius: 0px 0px 0px 0px;
+}
