@@ -39,12 +39,24 @@
 }
 
 .body-left {
-  width: 80%;
+  width: 60%;
   float: left;
 }
 
-.reservation-panel {
+.body-right {
   float: right;
+}
+
+.reservation-panel {
+  position: absolute;
+  height: 100%;
+  top: 100px;
+  right: 150px;
+  z-index: 100;
+}
+
+.body-full {
+  width: 100%;
 }
 
 // SEARCH

@@ -1,3 +1,4 @@
+
   <!-- image -->
     <div class="row">
       <div class="col-md-12">
@@ -7,6 +8,7 @@
 
   <br>
 
+<div class="container">
     <!-- main info -->
   <div class="body-left">
     <div class="row">
@@ -123,30 +125,37 @@
     <!-- REVIEWS -->
     <div class="row">
       <div class="col-md-12">
-        <h3>
-          <%= pluralize(@guest_reviews.count, "Review") %>
-          <span id="average_rating"></span>
-        </h3>
-        <div class="container">
-          <div><%= render "reviews/guest_list" %></div>
-        </div>
+        <h3>Reviews</h3>
+        <% if @guest_reviews.count > 0 %>
+          <h3>
+            <%= pluralize(@guest_reviews.count, "Review") %>
+            <span id="average_rating"></span>
+          </h3>
+          <div class="container">
+            <div><%= render "reviews/guest_list" %></div>
+          </div>
+        <% else %>
+          <p class="annotation">This home doesn’t have any reviews. If you stay here, your review will appear here.</p>
+        <% end %>
       </div>
     </div>
   </div>
 
   <br/>
 
-  <!-- RIGHT PANEL -->
-  <div class="col-md-4 reservation-panel">
-    <!-- Reservation Form -->
-    <%= render 'reservations/form' %>
+  <div class="body-right reservation-panel">
+    <!-- RIGHT PANEL -->
+      <!-- Reservation Form -->
+      <%= render 'reservations/form' %>
   </div>
 
+  <div class="body-full">
+  <!-- FULL WIDTH PANEL -->
     <!-- GOOGLE MAP -->
     <div class="row">
 
       <div id="map" style="width: 100%; height: 400px"></div>
-
+      <p class="annotation" >Exact location information is provided after a booking is confirmed.</p>
       <script src="https://maps.googleapis.com/maps/api/js"></script>
       <script>
           function initialize() {
@@ -174,10 +183,9 @@
     </div>
     <hr/>
 
-  <!-- FULL WIDTH PANEL
-   NEAR BY ROOMS -->
+  <!-- NEIBORS -->
     <div class="row">
-      <h3>The neighborhood</h3>
+    <h3>The neighborhood</h3>
       <% for room in @room.nearbys(10) %>
           <div class="col-md-4">
             <div class="panel panel-default">
@@ -194,9 +202,6 @@
     </div>
 
   </div>
-
-
-
 </div>
 
 <script>
