@@ -1,9 +1,9 @@
 .navbar-default {
-  background-color: #FFFFFF;
+  background-color: $ColorWhite;
 }
 
 .navbar-default .navbar-brand {
-  color: #FF5A5F;
+  color: $ColorRed;
   font-size: 2em;
   font-weight: 400;
 }
@@ -59,18 +59,42 @@
 
 .icon-gray {
   float: left;
+  width: 32px;
+  line-height: $navboxHeight;
+  text-align: center;
+}
+
+// BOXES
+#search {
+  float: left;
+  border: none;
+  outline: none;
+  height: $navboxHeight;
 }
 
 #start_date {
+  float: left;
   text-align: left;
+  border: none;
+  outline: none;
+  height: $navboxHeight;
 }
 
 #end_date {
+  float: left;
   text-align: left;
+  border: none;
+  outline: none;
+  height: $navboxHeight;
 }
 
+table td {
+  border: 1px solid DarkGray;
+}
+
+// ACTIVATED STYLES
 #activepage a {
-  color: white;
+  color: $ColorWhite;
   display: block;
   height: 40px;
   line-height: 10px;
@@ -78,4 +102,15 @@
   border-bottom: 3px solid DarkGray;
   padding: 15px 0px;
   margin: auto 3px;
+}
+
+#activetab a {
+  color: $ColorGreen;
+  display: block;
+  height: 40px;
+  line-height: 10px;
+  vertical-align: middle;
+  border-bottom: 3px solid $ColorGreen;
+  padding: 15px 0px;
+  margin: auto 15px;
 }

@@ -12,23 +12,39 @@
     <div id="navbar" class="navbar-collapse collapse">
       <%= form_tag search_path, class: "navbar-form navbar-left", method: :get do %>
           <div class="form-group">
-<!--             <div class="icon-gray">
-              <i class="fa fa-search" aria-hidden="true"></i>
-            </div> -->
+            <table>
+            <tbody>
+            <tr>
 
-              <%= text_field_tag :search, params[:search], placeholder: "Anywhere", class: "form-control" %>
-
-<!--             <div class="icon-gray">
-              <i class="fa fa-calendar-o" aria-hidden="true"></i>
-            </div>
-            <div class="icon-gray">
-              <i class="fa fa-users" aria-hidden="true"></i>
-            </div> -->
-              <%= text_field_tag :start_date, params[:start_date], placeholder: "Start Date", class: "form-control datepicker" %>
-
-              <%= text_field_tag :end_date, params[:end_date], placeholder: "End Date", class: "form-control datepicker" %>
+            <td>
+              <div class="icon-gray">
+                <i class="fa fa-search" aria-hidden="true"></i>
               </div>
-              <%= submit_tag "Search", class: "btn btn-normal" %>
+              <%= text_field_tag :search, params[:search], placeholder: "Anywhere", class: "form-navbar" %>
+            </td>
+
+            <td>
+              <div class="icon-gray">
+                <i class="fa fa-calendar-o" aria-hidden="true"></i>
+              </div>
+
+              <% if current_page?(root_path) || current_page?(search_path) %>
+                <%= text_field_tag :start_date, params[:start_date], placeholder: "Start Date", class: "form-navbar datepicker" %>
+            </td>
+
+            <td>
+              <div class="icon-gray">
+                <i class="fa fa-users" aria-hidden="true"></i>
+              </div>
+              <%= text_field_tag :end_date, params[:end_date], placeholder: "End Date", class: "form-navbar datepicker" %>
+            <% end %>
+            </td>
+
+            </tr>
+            </tbody>
+          </table>
+          </div>
+          <%= submit_tag "Search", class: "btn btn-normal" %>
         <% end %>
 
       <ul class="nav navbar-nav navbar-right">
@@ -42,7 +58,7 @@
           <%= link_to "Messages (TBD)", root_path %>
         </li>
         <li>
-          <%= link_to "Help", root_path %>
+          <%= link_to "Help (TBD)", root_path %>
         </li>
 
         <% if (!user_signed_in?) %>
@@ -71,13 +87,13 @@
       </ul>
     </div>
 
-  <% if current_page?(root_path) %>
+  <% if current_page?(root_path) || current_page?(search_path) %>
     <nav class="navbar-inbetween" >
       <ul class="nav navbar-nav subnav-item">
         <li>
           <%= link_to "FOR YOU", root_path %>
         </li>
-        <li>
+        <li <% if current_page?(search_path) %> id="activetab" <% end %> >
           <%= link_to "HOMES", search_path %>
         </li>
         <li>
@@ -90,7 +106,7 @@
       </nav>
   <% end %>
 
-  <% if (user_signed_in?) && !current_page?(root_path) %>
+  <% if (user_signed_in?) && !current_page?(root_path) && !current_page?(search_path) %>
 
 <!-- && !current_page?("/rooms/#{params[:id]}") -->
       <nav class="navbar-inbetween" style="background-color: #484848">

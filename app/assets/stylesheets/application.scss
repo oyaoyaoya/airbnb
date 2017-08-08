@@ -1,6 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "toastr";
+@import "./colors";
 @import "./buttons";
 @import "./footer";
 @import "./forms";
@@ -11,7 +12,7 @@
 body {
   color: #565a5c;
   background-color: white;
-  font-family: "Century Gothic", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-family: "Circular", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 }
 
 
@@ -31,7 +32,7 @@ a {
 
 .panel-right {
   float: right;
-    width: 70%;
+  width: 70%;
 }
 .panel-left {
   float: left;
