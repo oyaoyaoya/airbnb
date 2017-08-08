@@ -61,14 +61,21 @@
   float: left;
 }
 
-#search {
-  margin: 0px 0px 0px 0px;
-}
-
 #start_date {
   text-align: left;
 }
 
 #end_date {
   text-align: left;
+}
+
+#activepage a {
+  color: white;
+  display: block;
+  height: 40px;
+  line-height: 10px;
+  vertical-align: middle;
+  border-bottom: 3px solid DarkGray;
+  padding: 15px 0px;
+  margin: auto 3px;
 }
