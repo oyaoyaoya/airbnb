@@ -20,7 +20,7 @@
             </div>
             <div class="col-md-2">
               <%= link_to room_path(trip.room) do %>
-                <%= image_tag trip.room.cover_photo(:thumb) %>
+                <%= image_tag trip.room.photo[0].thumb %>
               <% end %>
             </div>
             <div class="col-md-5">

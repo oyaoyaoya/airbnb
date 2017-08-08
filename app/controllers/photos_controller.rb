@@ -4,8 +4,8 @@ class PhotosController < ApplicationController
     @room = Room.find(params[:room_id])
 
     if params[:images]
-      params[:images].each do |img|
-        @room.photos.create(image: img)
+      params[:images].each do |image|
+        @room.photos.create(image: image)
       end
 
       @photos = @room.photos
@@ -23,4 +23,3 @@ class PhotosController < ApplicationController
     respond_to :js
   end
 end
-  
