@@ -1,4 +1,4 @@
-class Scraping
+class Scraping(TBD)
   def self.places
     agent = Mechanize.new
     links = []

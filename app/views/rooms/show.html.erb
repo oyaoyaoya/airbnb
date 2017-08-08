@@ -1,13 +1,14 @@
   <!-- image -->
     <div class="row">
       <div class="col-md-12">
-        <%= image_tag @room.cover_photo(nil), width: "100%" %>
+        <%= image_tag @room.photos[0].image, width: "100%" %>
       </div>
     </div>
 
-  <br/>
+  <br>
 
     <!-- main info -->
+  <div class="body-left">
     <div class="row">
       <div class="col-md-8">
         <h1><%= @room.listing_name %></h1>
@@ -20,7 +21,7 @@
     </div>
     <hr/>
 
-<div class="row text-babu">
+    <div class="row text-babu">
       <div class="row text-center row-space-1">
         <div class="col-md-3">
           <i class="fa fa-home fa-2x"></i>
@@ -99,7 +100,7 @@
           <div class="carousel-inner">
             <% @photos.each do |photo| %>
                 <div class="item <%= 'active' if photo.id == @photos[0].id %>">
-                  <%= image_tag photo.image.url() %>
+                  <%= image_tag photo.image %>
                 </div>
             <% end %>
           </div>
@@ -131,8 +132,15 @@
         </div>
       </div>
     </div>
-    <br/>
-    <hr/>
+  </div>
+
+  <br/>
+
+  <!-- RIGHT PANEL -->
+  <div class="col-md-4 reservation-panel">
+    <!-- Reservation Form -->
+    <%= render 'reservations/form' %>
+  </div>
 
     <!-- GOOGLE MAP -->
     <div class="row">
@@ -154,7 +162,7 @@
             });
 
             var infoWindow = new google.maps.InfoWindow({
-              content: '<div id="content"><%= image_tag @room.cover_photo(:medium) %></div>'
+              content: '<div id="content"><%= image_tag @room.photos[0].image.thumb %></div>'
             });
 
             infoWindow.open(map, marker);
@@ -166,14 +174,15 @@
     </div>
     <hr/>
 
-    <!-- NEAR BY ROOMS -->
+  <!-- FULL WIDTH PANEL
+   NEAR BY ROOMS -->
     <div class="row">
-      <h3>Near by</h3>
+      <h3>The neighborhood</h3>
       <% for room in @room.nearbys(10) %>
           <div class="col-md-4">
             <div class="panel panel-default">
               <div class="panel-heading preview">
-                <%= image_tag room.cover_photo(:medium) %>
+                <%= image_tag room.photos[0].image(:medium) %>
               </div>
               <div class="panel-body">
                 <%= link_to room.listing_name, room %><br/>
@@ -187,11 +196,7 @@
   </div>
 
 
-  <!-- RIGHT PANEL -->
-  <div class="col-md-4">
-    <!-- Reservation Form -->
-    <%= render 'reservations/form' %>
-  </div>
+
 </div>
 
 <script>

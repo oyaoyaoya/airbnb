@@ -13,8 +13,6 @@ class Room < ApplicationRecord
   validates :bed_room, presence: true
   validates :bath_room, presence: true
 
-  # mount_uploader :photos, ImageUploader
-
   def cover_photo(size)
     if self.photos.length > 0
       self.photos[0].image.url(size)

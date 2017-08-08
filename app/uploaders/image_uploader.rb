@@ -10,6 +10,22 @@ class ImageUploader < CarrierWave::Uploader::Base
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
+  # thumb バージョン(width 400px x height 200px)
+
+  version :thumb do
+    process :resize_to_fit => [100, 100]
+  end
+  version :medium do
+    process :resize_to_fit => [333, 222]
+  end
+  version :large do
+    process :resize_to_fit => [436.6, 291]
+  end
+
+  # 許可する画像の拡張子
+  def extension_white_list
+    %W[jpg jpeg gif png]
+  end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url(*args)
@@ -25,7 +41,6 @@ class ImageUploader < CarrierWave::Uploader::Base
   # def scale(width, height)
   #   # do something
   # end
-  process :resize_to_fit => [200,200]
   # Create different versions of your uploaded files:
 
   # Add a white list of extensions which are allowed to be uploaded.

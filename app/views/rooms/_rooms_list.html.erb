@@ -2,7 +2,9 @@
     <div class="col-md-4">
       <div class="panel panel-default">
         <div class="panel-heading preview">
-          <%= image_tag room.cover_photo(:medium) %>
+          <% if room.photos.count > 0 %>
+            <%= image_tag room.photos[0].image %>
+          <% end %>
         </div>
         <div class="panel-body">
           <%= link_to room.listing_name, room %><br/>
