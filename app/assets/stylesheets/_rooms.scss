@@ -72,10 +72,16 @@
 }
 
 #right {
-  position: fixed;
+  position: absolute;
+  margin-top: 105px;
   top: 0;
   right: 0;
   width: 450px;
+  height: 100%;
+}
+
+#map{
+  width: 100%;
   height: 100%;
 }
 

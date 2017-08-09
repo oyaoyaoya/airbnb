@@ -1,3 +1,5 @@
+<div class="container", min-height="500px">
+</main>
 <div id="main">
   <div id="left">
     <!-- SEARCH PANEL -->
@@ -104,6 +106,7 @@
 
       <div class="row" id="room_listing">
         <%= render partial: "rooms/rooms_list", locals: {rooms: @arrRooms} %>
+        <p class="annotation" style="text-align:center">Enter dates to see full pricing. Additional fees apply. Taxes may be added.</p>
       </div>
 
     </div>
@@ -111,9 +114,10 @@
 
 
   <div id="right">
+
     <!-- GOOGLE MAP -->
 
-    <div id="map" style="width: 100%; height: 100%"></div>
+    <div id="map"></div>
 
     <script src="https://maps.googleapis.com/maps/api/js"></script>
     <script>
@@ -152,6 +156,7 @@
   </div>
 </div>
 
+</div>
 
 <script>
   $('#start_date').datepicker({

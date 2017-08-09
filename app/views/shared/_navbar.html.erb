@@ -24,11 +24,10 @@
             </td>
 
             <td>
+              <% if current_page?(root_path) || current_page?(search_path) %>
               <div class="icon-gray">
                 <i class="fa fa-calendar-o" aria-hidden="true"></i>
               </div>
-
-              <% if current_page?(root_path) || current_page?(search_path) %>
                 <%= text_field_tag :start_date, params[:start_date], placeholder: "Start Date", class: "form-navbar datepicker" %>
             </td>
 
@@ -88,7 +87,7 @@
     </div>
 
   <% if current_page?(root_path) || current_page?(search_path) %>
-    <nav class="navbar-inbetween" >
+    <nav class="nav navbar navbar-inbetween" >
       <ul class="nav navbar-nav subnav-item">
         <li>
           <%= link_to "FOR YOU", root_path %>

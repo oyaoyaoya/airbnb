@@ -1,3 +1,8 @@
+.navbar {
+  clear: both;
+  width: 100%;
+}
+
 .navbar-default {
   background-color: $ColorWhite;
 }
@@ -51,10 +56,11 @@
 }
 
 #mainlogo {
-  width: 82px;
+  width: 80px;
   display: block;
   text-align: center;
   line-height: 64px;
+  margin-left: 3px;
 }
 
 .icon-gray {
