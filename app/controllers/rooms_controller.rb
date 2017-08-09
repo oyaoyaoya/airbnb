@@ -22,7 +22,6 @@ before_action :is_authorised, only: [:listing, :pricing, :description, :photo_up
       redirect_to listing_room_path(@room), notice: "Saved.."
     else
       flash[:alert] = "Something went wrong..."
-      redirect_to room_path, notice: "Your room created!"
     end
   end
 
