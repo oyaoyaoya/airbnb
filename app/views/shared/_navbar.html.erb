@@ -23,19 +23,19 @@
               <%= text_field_tag :search, params[:search], placeholder: "Anywhere", class: "form-navbar" %>
             </td>
 
-            <td>
-              <% if current_page?(root_path) || current_page?(search_path) %>
+            <% if current_page?(root_path) || current_page?(search_path) %>
+              <td>
               <div class="icon-gray">
                 <i class="fa fa-calendar-o" aria-hidden="true"></i>
               </div>
                 <%= text_field_tag :start_date, params[:start_date], placeholder: "Start Date", class: "form-navbar datepicker" %>
-            </td>
+              </td>
 
-            <td>
-              <div class="icon-gray">
-                <i class="fa fa-users" aria-hidden="true"></i>
-              </div>
-              <%= text_field_tag :end_date, params[:end_date], placeholder: "End Date", class: "form-navbar datepicker" %>
+              <td>
+                <div class="icon-gray">
+                  <i class="fa fa-users" aria-hidden="true"></i>
+                </div>
+                <%= text_field_tag :end_date, params[:end_date], placeholder: "End Date", class: "form-navbar datepicker" %>
             <% end %>
             </td>
 
@@ -87,7 +87,7 @@
     </div>
 
   <% if current_page?(root_path) || current_page?(search_path) %>
-    <nav class="nav navbar navbar-inbetween" >
+    <nav class="navbar-inbetween" >
       <ul class="nav navbar-nav subnav-item">
         <li>
           <%= link_to "FOR YOU", root_path %>
@@ -107,12 +107,11 @@
 
   <% if (user_signed_in?) && !current_page?(root_path) && !current_page?(search_path) %>
 
-<!-- && !current_page?("/rooms/#{params[:id]}") -->
       <nav class="navbar-inbetween" style="background-color: #484848">
         <div class="container">
           <ul class="nav navbar-nav subnav-item">
             <li><%= link_to "Dashboard (TBD)", root_path, disabled: true %></li>
-            <li><%= link_to "Inbox (TBD))", root_path, disabled: true %></li>
+            <li><%= link_to "Inbox (TBD)", root_path, disabled: true %></li>
             <li <% if current_page?(rooms_path) %> id="activepage" <% end %> ><%= link_to "Your Listings", rooms_path %></li>
             <li <% if current_page?(your_trips_path) %> id="activepage" <% end %> ><%= link_to "Your Trips", your_trips_path %></li>
             <li <% if current_page?(edit_user_registration_path) %> id="activepage" <% end %> ><%= link_to "Profile", edit_user_registration_path %></li>
@@ -121,6 +120,7 @@
           </ul>
         </div>
       </nav>
+
   <% end %>
 </nav>
 

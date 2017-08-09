@@ -2,7 +2,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
   # Choose what kind of storage to use for this uploader:
-  storage :fog
+  storage :file
   # storage :fog
 
   # Override the directory where uploaded files will be stored.
@@ -10,7 +10,6 @@ class ImageUploader < CarrierWave::Uploader::Base
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
-  # thumb バージョン(width 400px x height 200px)
 
   version :thumb do
     process :resize_to_fit => [100, 100]
@@ -22,7 +21,6 @@ class ImageUploader < CarrierWave::Uploader::Base
     process :resize_to_fit => [436.6, 291]
   end
 
-  # 許可する画像の拡張子
   def extension_white_list
     %W[jpg jpeg gif png]
   end

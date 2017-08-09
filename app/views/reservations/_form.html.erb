@@ -1,4 +1,5 @@
-<div class="panel panel-default">
+
+<div class="panel panel-default" id="scrollTop">
   <div class="panel-heading">
     <span><i class="fa fa-bolt" style="color: #ffb400"></i> $<%= @room.price %></span>
     <span class="pull-right">Per Night</span>
@@ -152,7 +153,11 @@
       }
     });
 
-
-
   });
+
+  // $(document).ready(function(){
+  //   $('navbar-collapse').scroll(function(){
+  //     $('#scrollTop').text($(this).scrollTop());
+  //   });
+  // });
 </script>
