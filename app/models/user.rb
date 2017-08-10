@@ -1,6 +1,5 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable
@@ -24,7 +23,7 @@ has_many :host_reviews, class_name: "HostReview", foreign_key: "host_id"
         user.image = auth.info.image
         user.uid = auth.uid
         user.provider = auth.provider
-        user.skip_confirmation!
+        # user.skip_confirmation!
     end
   end
 end

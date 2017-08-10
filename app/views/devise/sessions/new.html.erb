@@ -1,7 +1,8 @@
+<div class="container">
 <div class="row">
-  <div class="col-md4 col-md-offset-4">
+  <div class="col-md-4">
 
-    <h2 class=" text-center">Log in</h2>
+    <h2 class=" text-center">Log in to continue</h2>
     <br/>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -28,8 +29,11 @@
       </div>
     <% end %>
 
-    <hr/>
+    <hr>
     <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path, class: "btn btn-facebook btn-block" %>
+    <hr>
+    <p>Don’t have an account?
+    <%= link_to "Sign up", new_user_registration_path, class: "pull-right" %></p>
   </div>
 </div>
-
+</div>
