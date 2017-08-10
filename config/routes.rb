@@ -10,6 +10,7 @@ Rails.application.routes.draw do
               }
 
   resources :users, only: [:show]
+  
   resources :rooms, except: [:edit] do
     member do
       get 'listing'
