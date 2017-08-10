@@ -55,11 +55,8 @@
             </div>
           </div>
 
-            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-              <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
               <br>
-            <% end %>
-
+<!-- 
           <div class="panel-body">
             <div class="panel-left">
               <p>New password</p>
@@ -80,7 +77,7 @@
                 <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
               </div>
             </div>
-          </div>
+          </div> -->
 
           <div class="panel-body">
             <div class="panel-left">
