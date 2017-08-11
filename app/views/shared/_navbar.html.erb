@@ -77,18 +77,14 @@
                     <% if current_user.image.present? %>
                       <%= image_tag current_user.image, class: "img-circle avatar-small" %>&nbsp;
                     <% else %>
-                      <%= current_user.name %>
+                      <%= current_user.fullname %>
                     <% end %>
               </a>
               <ul class="dropdown-menu">
                 <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
-                <li role="separator" class="divider"></li>
                 <li><%= link_to "Travel Credit (TBD)", root_path %></li>
-                <li role="separator" class="divider"></li>
                 <li><%= link_to "Account Settings (TBD)", root_path %></li>
-                <li role="separator" class="divider"></li>
                 <li><%= link_to "My Guidebook", src="https://www.airbnb.com/things-to-do" %></li>
-                <li role="separator" class="divider"></li>
                 <li><%= link_to "Airbnb for Work", src="https://www.airbnb.com/work?s=nav" %></li>
                 <li role="separator" class="divider"></li>
                 <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
@@ -109,7 +105,7 @@
           <%= link_to "HOMES", search_path %>
         </li>
         <li>
-          <%= link_to "EXPERIENCE", experiences_path %>
+          <%= link_to "EXPERIENCE", root_path %>
         </li>
         <li>
           <%= link_to "PLACES", root_path %>
@@ -125,6 +121,8 @@
         <div class="container">
           <ul class="nav navbar-nav subnav-item">
             <li><%= link_to "Dashboard (TBD)", root_path, disabled: true %></li>
+
+            <li><%= link_to "Inbox (TBD)", root_path, disabled: true %></li>
 
             <li><%= link_to "Inbox (TBD)", root_path, disabled: true %></li>
 
