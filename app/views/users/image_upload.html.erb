@@ -8,9 +8,9 @@
           <div class="panel-body">
             <div class="panel-left">
               <% if  %>
-                <%= image_tag current_user.image.url %>
+                <%= image_tag current_user.image.url(:medium) %>
               <% else %>
-                <i class: "fa fa-camera-retro "></i>
+                <i class: "fa fa-camera-retro"></i>
                 <p>Uplpoad your profile photo</p>
               <% end %>
             </div>
@@ -18,9 +18,14 @@
               <p class="annotation">Clear frontal face photos are an important way for hosts and guests to learn about each other. It’s not much fun to host a landscape! Be sure to use a photo that clearly shows your face and doesn’t include any personal or sensitive info you’d rather not have hosts or guests see.</p>
               <p style="line-height:6px;"></p>
               <p class="annotation">Your public profile only shows your first name. When you request a booking, your host will see your first and last name.</p>
+              <br>
+              <div class="form-group">
+                <span class="btn btn-default btn-file text-babu">Select Photos
+                  <%= file_field_tag :image, type: :file, multiple: true %>
+                </span>
+              </div>
             </div>
             <br>
-            <%= file_field_tag :image, type: :file %>
           </div>
 
             <br>
@@ -31,15 +36,24 @@
     <div class="panel panel-default">
       <div class="panel-heading">Profile Video</div>
         <div class="panel-body">
-          <div class="panel-left">
-            <p>You haven't recorded a video profile yet.</p>
-          </div>
-          <div class="panel-right">
-            <h3>Video Checklist</h3>
-            <p></p>
-            <div class="form_group">
-              <%= f.text_field :description, autofocus: true, class: "form-control", placeholder: "TBD", disabled: true %>
+          <div class="col-md-7">
+            <div class="video-thumb">
+              <p class="video-title">
+                You haven't recorded a video profile yet.</p>
+              <p class="video-icon">
+                <i class="fa fa-video-camera fa-5x" aria-hidden="true"></i>
+              </p>
             </div>
+          </div>
+          <div class="col-md-5">
+            <h3>Video Checklist</h3>
+            <ul>
+              <li>We love close-ups, but we suggest you sit at arm’s length.</li>
+              <li>You’ve got 30 seconds, so do your best to be concise.</li>
+              <li>Try to keep the light in front of you, not behind you.</li>
+              <li>Look into the camera to create that personal connection.</li>
+              <li>You’ll get a chance to preview your video before it uploads.</li>
+            </ul>
           </div>
         </div>
 
@@ -54,9 +68,11 @@
           </ul>
         </div>
     </div>
-      <div class="actions">
-        <%= f.submit "Save", class: "btn btn-normal" %>
-      </div>
+
+    <div class="actions">
+      <%= f.submit "Save", class: 'btn btn btn-normal' %>
+    </div>
+
     <% end %>
   </div>
 </div>
