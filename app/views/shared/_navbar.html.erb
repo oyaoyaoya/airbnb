@@ -75,13 +75,14 @@
               </a>
               <ul class="dropdown-menu">
                 <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
+                <li role="separator" class="divider"></li>
                 <li><%= link_to "Travel Credit (TBD)", root_path %></li>
+                <li role="separator" class="divider"></li>
                 <li><%= link_to "Account Settings (TBD)", root_path %></li>
-                <li><%= link_to "My Guidebook (TBD)", root_path %></li>
-                <li><%= link_to "Business Travel (TBD)", root_path %></li>
-                <li><%= link_to "Manage Listing", rooms_path %></li>
-                <li><%= link_to "List Your Space", new_room_path %></li>
-                <li><%= link_to "Your Reservations", your_reservations_path %></li>
+                <li role="separator" class="divider"></li>
+                <li><%= link_to "My Guidebook", src="https://www.airbnb.com/things-to-do" %></li>
+                <li role="separator" class="divider"></li>
+                <li><%= link_to "Airbnb for Work", src="https://www.airbnb.com/work?s=nav" %></li>
                 <li role="separator" class="divider"></li>
                 <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
               </ul>

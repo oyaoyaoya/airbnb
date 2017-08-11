@@ -45,7 +45,11 @@ before_action :is_authorised, only: [:listing, :pricing, :description, :photo_up
     redirect_back(fallback_location: request.referer)
   end
 
-    def preload
+
+  def destroy
+  end
+  
+  def preload
     today = Date.today
     reservations = @room.reservations.where("start_date >= ? OR end_date >= ?", today, today)
 

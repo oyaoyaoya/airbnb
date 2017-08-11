@@ -15,7 +15,6 @@ body {
   font-family: "Circular", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 }
 
-
 a {
   color: #00A699;
 }
@@ -51,6 +50,10 @@ a {
 .row-space-3 {
   margin-top: 24px;
   margin-bottom: 24px;
+}
+
+.clearfix{
+  clear: both;
 }
 
 // PANELS

@@ -1,7 +1,7 @@
 
 // BUTTONS
 .btn {
-  color: #fff;
+  color: $ColorWhite;
   border-radius: 5px;
   font-weight: bold;
   padding: auto auto;
@@ -14,14 +14,22 @@
 }
 
 .btn.btn-normal {
-  border: 1px solid #ff5a5f;
-  background-color: #ff5a5f;
+  border: 1px solid $ColorRed;
+  background-color: $ColorRed;
   padding: auto 5px;
 }
 
+.btn.btn-white {
+  border: 1px solid $ColorGray;
+  background-color: $ColorWhite;
+  padding: auto 10px;
+  margin: auto 3px;
+  color: $ColorDarkgray;
+  float: left;
+}
 
 .btn:hover, .btn:focus {
-  color: #fff;
+  color: $ColorWhite;
 }
 
 .btn.btn-default {
@@ -41,8 +49,8 @@
 }
 
 .btn.btn-form {
-  border: 1px solid #00A699;
-  background-color: #00A699;
+  border: 1px solid $ColorGreen;
+  background-color: $ColorGreen;
 }
 
 .btn.btn-form:active {
