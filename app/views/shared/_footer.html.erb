@@ -14,7 +14,7 @@
       <form action="#">
 
         <fieldset>
-          <select name="language" id="language">
+          <select name="language", class="footbar-box", id="language">
             <option selected="selected">English</option>
             <option>Espanol</option>
             <option>Japanese</option>
@@ -25,7 +25,7 @@
        </fieldset>
        <br>
        <fieldset>
-          <select name="currency" id="currency">
+          <select name="currency", class="footbar-box", id="currency">
             <option selected>USD</option>
             <option>EUR</option>
             <option>JPY</option>
@@ -119,24 +119,24 @@
           <p>&nbsp;&nbsp;© Airbnb, Inc.</p>
       </div>
 
-          <p class="footer-right">
-          &nbsp;
-              <i class="fa fa-facebook fa-lg">&nbsp;</i>
-              <i class="fa fa-twitter fa-lg">&nbsp;</i>
-              <i class="fa fa-instagram fa-lg">&nbsp;</i>
-          </p>
+      <div class="footer-right">
+      &nbsp;
+          <i class="fa fa-facebook fa-lg">&nbsp;</i>
+          <i class="fa fa-twitter fa-lg">&nbsp;</i>
+          <i class="fa fa-instagram fa-lg">&nbsp;</i>
+      </div>
 
-          <ul class="footer-right table-ul">
-            <li>
-              <%= link_to "Terms", src="https://www.airbnb.com/terms" %>
-            </li>
-            <li>
-              <%= link_to "Privacy", src="https://www.airbnb.com/terms/privacy_policy" %>
-            </li>
-            <li>
-              <%= link_to "Site Map", src="https://www.airbnb.com/sitemaps" %>
-            </li>
-          </ul>
+      <ul class="footer-right table-ul">
+        <li>
+          <%= link_to "Terms", src="https://www.airbnb.com/terms" %>&nbsp;&nbsp;&nbsp;
+        </li>
+        <li>
+          <%= link_to "Privacy", src="https://www.airbnb.com/terms/privacy_policy" %>&nbsp;&nbsp;
+        </li>
+        <li>
+          <%= link_to "Site Map", src="https://www.airbnb.com/sitemaps" %>&nbsp;&nbsp;
+        </li>
+      </ul>
 
       </div>
     </div>

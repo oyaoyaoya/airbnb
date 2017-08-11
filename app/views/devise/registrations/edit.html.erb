@@ -1,15 +1,5 @@
 <div class="container">
-<div class="col-md-3">
-  <ul class="sidebar-list">
-    <li class="sidebar-item"><%= link_to "Edit Profile", edit_user_registration_path, class: "sidebar-link active" %></li>
-    <li class="sidebar-item"><%= link_to "Photos and Video", root_path, class: "sidebar-link inactive" %></li>
-    <li class="sidebar-item"><%= link_to "Trust and Verification", root_path, class: "sidebar-link inactive" %></li>
-    <li class="sidebar-item"><%= link_to "Reviews", root_path, class: "sidebar-link inactive" %></li>
-    <li class="sidebar-item"><%= link_to "References", root_path, class: "sidebar-link inactive" %></li>
-  </ul>
-  <br>
-  <%= link_to "View Profile", user_path(current_user.id), class: "btn btn-default" %>
-</div>
+<%= render 'users/user_menu' %>
 
 <div class="col-md-8">
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>

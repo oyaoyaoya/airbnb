@@ -1,0 +1,12 @@
+<div class="col-md-3">
+  <ul class="sidebar-list">
+    <li class="sidebar-item <% if current_page?(edit_user_registration_path) %> class: "sidebar-link active" <% else %> class: "sidebar-link inactive" <% end %>" >
+    <%= link_to "Edit Profile", edit_user_registration_path %></li>
+    <li class="sidebar-item"><%= link_to "Photos and Video", image_upload_user_path(current_user), class: "sidebar-link inactive" %></li>
+    <li class="sidebar-item"><%= link_to "Trust and Verification", root_path, class: "sidebar-link inactive" %></li>
+    <li class="sidebar-item"><%= link_to "Reviews", root_path, class: "sidebar-link inactive" %></li>
+    <li class="sidebar-item"><%= link_to "References", root_path, class: "sidebar-link inactive" %></li>
+  </ul>
+  <br>
+  <%= link_to "View Profile", user_path(current_user.id), class: "btn btn-default" %>
+</div>

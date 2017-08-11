@@ -3,7 +3,9 @@
       <div class="panel panel-default">
         <div class="panel-heading preview">
           <% if room.photos.count > 0 %>
-            <%= image_tag room.photos[0].image.url %>
+            <%= image_tag room.photos[0].image.thumb.url %>
+          <% else %>
+            <p>no images</p>
           <% end %>
         </div>
         <div class="panel-body">

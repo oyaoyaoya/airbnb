@@ -47,11 +47,14 @@ select {
 .table-ul {
   display: table;
   table-layout: fixed;
-  width: 21%;
 }
 
 .table-ul li {
   display: table-cell;
   vertical-align: middle;
   text-align: left;
+}
+
+.footbar-box {
+  width: 200px;
 }

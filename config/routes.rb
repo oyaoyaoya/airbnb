@@ -9,8 +9,12 @@ Rails.application.routes.draw do
                 registraions: 'registrations'
               }
 
-  resources :users, only: [:show]
-  
+  resources :users, only: [:show] do
+    member do
+      get 'image_upload'
+    end
+  end
+
   resources :rooms, except: [:edit] do
     member do
       get 'listing'
