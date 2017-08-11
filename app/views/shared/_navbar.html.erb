@@ -90,7 +90,7 @@
       </ul>
     </div>
 
-
+<!-- WHITE NAVBAR -->
   <% if current_page?(root_path) || current_page?(search_path) %>
     <nav class="navbar-inbetween" >
       <ul class="nav navbar-nav subnav-item">
@@ -110,17 +110,24 @@
       </nav>
   <% end %>
 
+<!-- BLACK NAVBAR -->
   <% if (user_signed_in?) && !current_page?(root_path) && !current_page?(search_path) %>
 
       <nav class="navbar-inbetween" style="background-color: #484848">
         <div class="container">
           <ul class="nav navbar-nav subnav-item">
             <li><%= link_to "Dashboard (TBD)", root_path, disabled: true %></li>
+
             <li><%= link_to "Inbox (TBD)", root_path, disabled: true %></li>
+
             <li <% if current_page?(rooms_path) %> id="activepage" <% end %> ><%= link_to "Your Listings", rooms_path %></li>
+
             <li <% if current_page?(your_trips_path) %> id="activepage" <% end %> ><%= link_to "Your Trips", your_trips_path %></li>
-            <li <% if current_page?(edit_user_registration_path) %> id="activepage" <% end %> ><%= link_to "Profile", edit_user_registration_path %></li>
+
+            <li <% if current_page?(edit_user_registration_path) || current_page?(image_upload_user_path(current_user)) %> id="activepage" <% end %> ><%= link_to "Profile", edit_user_registration_path %></li>
+
             <li><%= link_to "Account (TBD)", root_path, disabled: true %></li>
+
             <li><%= link_to "Travel Credit (TBD)", root_path, disabled: true %></li>
           </ul>
         </div>

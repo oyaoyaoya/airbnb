@@ -20,12 +20,12 @@
   text-decoration: none;
 }
 
-.active.sidebar-link {
-  color: #565A5C;
+#active-sidebar a {
+  color: $ColorGreen;
   font-weight: bold;
   text-decoration: none;
 }
 
 .inactive.sidebar-link{
-  color: #DardGray;
+  color: $ColorGray;
 }
