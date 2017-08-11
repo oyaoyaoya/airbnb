@@ -11,6 +11,8 @@
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <%= form_tag search_path, class: "navbar-form navbar-left", method: :get do %>
+
+        <% if current_page?(root_path) || current_page?(search_path) %>
           <div class="form-group">
             <table>
             <tbody>
@@ -23,7 +25,6 @@
               <%= text_field_tag :search, params[:search], placeholder: "Anywhere", class: "form-navbar" %>
             </td>
 
-            <% if current_page?(root_path) || current_page?(search_path) %>
               <td>
               <div class="icon-gray">
                 <i class="fa fa-calendar-o" aria-hidden="true"></i>
@@ -36,15 +37,21 @@
                   <i class="fa fa-users" aria-hidden="true"></i>
                 </div>
                 <%= text_field_tag :end_date, params[:end_date], placeholder: "End Date", class: "form-navbar datepicker" %>
-            <% end %>
             </td>
-
             </tr>
             </tbody>
-          </table>
+            </table>
           </div>
-          <%= submit_tag "Search", class: "btn btn-normal" %>
+        <% else %>
+          <div class="form-group">
+            <div class="icon-gray">
+              <i class="fa fa-search" aria-hidden="true"></i>
+            </div>
+            <%= text_field_tag :search, params[:search], placeholder: "Search", class: "form-navbar" %>
+          </div>
         <% end %>
+        <%= submit_tag "Search", class: "btn btn-normal" %>
+      <% end %>
 
       <ul class="nav navbar-nav navbar-right">
         <li>
@@ -102,7 +109,7 @@
           <%= link_to "HOMES", search_path %>
         </li>
         <li>
-          <%= link_to "EXPERIENCE", root_path %>
+          <%= link_to "EXPERIENCE", experiences_path %>
         </li>
         <li>
           <%= link_to "PLACES", root_path %>
