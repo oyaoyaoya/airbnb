@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/rails/webpacker.git
+  revision: 2fc6ade57bd162b4d055d885fddb6a793038bf63
+  specs:
+    webpacker (2.0)
+      activesupport (>= 4.2)
+      railties (>= 4.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -498,6 +506,7 @@ DEPENDENCIES
   uglifier (>= 1.3.0)
   unicorn
   web-console (>= 3.3.0)
+  webpacker!
 
 BUNDLED WITH
    1.15.3

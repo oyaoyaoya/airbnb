@@ -30,6 +30,7 @@ gem 'mini_magick'
 gem 'fog'
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
+gem 'webpacker', git: 'https://github.com/rails/webpacker.git'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
