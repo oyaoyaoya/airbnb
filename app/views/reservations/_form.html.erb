@@ -1,6 +1,6 @@
 
 <div class="panel panel-default" id="scrollTop">
-  <div class="panel-heading", id="reservationpanel-heading"><p class="pull-left"><i class="fa fa-bolt pull-left" style="color: #ffb400"></i>
+  <div class="panel-heading", id="reservationpanel-heading"><p class="pull-left"><% if @room.Instant? %><i class="fa fa-bolt pull-left" style="color: #ffb400"></i><% end %>
   from&nbsp;$<%= @room.price %>&nbsp;Per Night</p>
   </div>
   <div class="panel-body">
@@ -38,7 +38,11 @@
 
       <br/>
 
-      <%= f.submit "Book", id: "btn_book", class: "btn btn-normal btn-block", disabled: true %>
+      <% if @room.Instant? %>
+        <%= f.submit "Book Now", id: "btn_book", class: "btn btn-normal btn-block", disabled: true %>
+      <% else %>
+        <%= f.submit "Request Now", id: "btn_book", class: "btn btn-normal btn-block", disabled: true %>
+      <% end %>
       <p style="line-height:6px;"></p>
       <p>100% refundable · You won’t be charged yet</p>
     <% end %>
