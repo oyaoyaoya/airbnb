@@ -1,42 +1,45 @@
-<div class="row">
-  <div class="col-md-3">
-    <div class="center">
-      <%= image_tag current_user.image_url, class: "avatar-full" %>
-    </div>
-    <div class="panel panel-default">
-      <div class="panel-heading"><%= current_user.fullname %></div>
-      <div class="panel-body">
-        <ul class="sidebar-list">
-          <% if current_user.provider %>
-            <li>Facebook<span class="pull-right icon-babu"><i class="fa fa-check-circle-o"></i></span></li>
-          <% end %>
-          <% if current_user.phone.present? %>
-            <li>Phone Number<span class="pull-right icon-babu"><i class="fa fa-check-circle-o"></i></span></li>
-          <% end %>
-        </ul>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="center">
+      <% if current_user.image.present? %>
+        <%= image_tag current_user.image_url, class: "avatar-full" %>
+      <% else %>
+        <i class="fa fa-camera fa-lg"></i>no image
+      <% end %>
       </div>
-    </div>
-  </div>
-
-  <div class="col-md-9">
-
-    <!-- Notification -->
-    <div class="panel panel-default">
-      <div class="panel-heading">Notifications</div>
-      <div class="panel-body">
-          <%= link_to notifications_path do %>
-              You have <span id="num_of_unread"><%= current_user.unread %></span> notification(s).
-          <% end %>
+      <div class="panel panel-default">
+        <div class="panel-heading"><%= current_user.fullname %></div>
+        <div class="panel-body">
+          <ul class="sidebar-list">
+            <% if current_user.provider %>
+              <li>Facebook<span class="pull-right icon-babu"><i class="fa fa-check-circle-o"></i></span></li>
+            <% end %>
+            <% if current_user.phone_number.present? %>
+              <li>Phone Number<span class="pull-right icon-babu"><i class="fa fa-check-circle-o"></i></span></li>
+            <% end %>
+          </ul>
+        </div>
       </div>
     </div>
 
-    <!-- Your Listings -->
-    <div class="panel panel-default">
-      <div class="panel-heading">Your Listings (<%= @rooms.length %>)</div>
-      <div class="panel-body">
-        <%= render partial: "rooms/rooms_list", locals: {rooms: @rooms} %>
-      </div>
-    </div>
+    <div class="col-md-9">
 
+      <!-- Notification -->
+      <div class="panel panel-default">
+        <div class="panel-heading">Notifications</div>
+        <div class="panel-body">
+        </div>
+      </div>
+
+      <!-- Your Listings -->
+      <div class="panel panel-default">
+        <div class="panel-heading">Your Listings (<%= @rooms.length %>)</div>
+        <div class="panel-body">
+          <%= render partial: "rooms/rooms_list", locals: {rooms: @rooms} %>
+        </div>
+      </div>
+
+    </div>
   </div>
 </div>

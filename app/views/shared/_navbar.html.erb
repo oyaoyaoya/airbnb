@@ -126,7 +126,7 @@
       <nav class="navbar-inbetween" style="background-color: #484848">
         <div class="container">
           <ul class="nav navbar-nav subnav-item">
-            <li <% if current_page?(dashboard_path) %> class="active" <% end %>><%= link_to "Dashboard (TBD)", dashboard_path %></li>
+            <li <% if current_page?(dashboard_path) %> id="activepage" <% end %>><%= link_to "Dashboard", dashboard_path %></li>
 
             <li><%= link_to "Stats (TBD)", root_path, disabled: true %></li>
 
