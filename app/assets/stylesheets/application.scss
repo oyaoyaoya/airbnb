@@ -88,10 +88,6 @@ a {
   line-height: 25px;
 }
 
-#left {
-  float: left;
-}
-
 // AVATAR
 .avatar-small {
   width: 20.5px;
@@ -168,4 +164,14 @@ a {
 .banner {
   margin-top: 50px;
   margin-bottom: 50px;
+}
+
+.verified_info li {
+  line-height: 29px;
+  list-style: none;
+  // height: 30px;
+}
+
+.fa-check-circle-o:before{
+  font-size: 2em;
 }
