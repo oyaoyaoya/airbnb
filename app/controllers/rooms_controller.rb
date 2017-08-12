@@ -51,7 +51,7 @@ before_action :is_authorised, only: [:listing, :pricing, :description, :photo_up
   
   def preload
     today = Date.today
-    reservations = @room.reservations.where("start_date >= ? OR end_date >= ?", today, today)
+    reservations = @room.reservations.where("(start_date >= ? OR end_date >= ?) AND status = ?", today, today, 1)
 
     render json: reservations
   end
