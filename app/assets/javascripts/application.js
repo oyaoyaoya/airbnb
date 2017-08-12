@@ -15,4 +15,6 @@
 //= require rails-ujs
 //= require jquery-ui
 //= require toastr
+//= require moment
+//= require fullcalendar
 //= require_tree .
