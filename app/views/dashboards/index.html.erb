@@ -1,24 +1,5 @@
 <div class="container">
-  <div class="col-md-3">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <div class="image-responsive" id="profile-photo-large">
-          <% if current_user.image.present? %>
-            <%= image_tag current_user.image_url, class: "avatar-full" %>
-          <% else %>
-            <i class="fa fa-camera fa-lg"></i>&nbsp;&nbsp;no image
-          <% end %>
-        </div>
-      </div>
-      <div class="panel-body">
-        <ul class="sidebar-list">
-          <li><h4><%= current_user.fullname %></h4></li>>
-          <li><%= link_to "Profile (TBD)", edit_user_registration_path %></li>
-          <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
-        </ul>
-      </div>
-    </div>
-  </div>
+  <%= render 'users/sidebar' %>
 
   <!-- RIGHT CONTENT -->
   <div class="col-md-9">
@@ -29,8 +10,19 @@
       </div>
     </div>
 
+    <!-- MESSAGE -->
+    <div class="panel panel-default">
+      <div class="panel-heading">Messages</div>
+      <div class="panel-body">
+        TBD
+      </div>
+      <div class="panel-body">
+        All messages
+      </div>
+    </div>
+
     <!-- VERIFIED INFO -->
-    <%= render 'verified_info' %>
+    <%= render 'users/verified_info' %>
 
   </div>
 </div>
