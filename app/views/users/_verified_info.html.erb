@@ -1,0 +1,22 @@
+    <div class="panel panel-default">
+      <div class="panel-heading">Messages</div>
+      <div class="panel-body">
+        TBD
+      </div>
+      <div class="panel-body">
+        All messages
+      </div>
+    </div>
+
+    <div class="panel panel-default">
+      <div class="panel-heading">Verified info</div>
+      <div class="panel-body">
+
+          <% if current_user.provider %>
+            <li>Facebook<span class="pull-right icon-babu"><i class="fa fa-check-circle-o"></i></span></li>
+          <% end %>
+          <% if current_user.phone_number.present? %>
+            <li>Phone Number<span class="pull-right icon-babu"><i class="fa fa-check-circle-o"></i></span></li>
+          <% end %>
+      </div>
+    </div>

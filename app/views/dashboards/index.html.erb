@@ -1,45 +1,36 @@
 <div class="container">
-  <div class="row">
-    <div class="col-md-3">
-      <div class="center">
-      <% if current_user.image.present? %>
-        <%= image_tag current_user.image_url, class: "avatar-full" %>
-      <% else %>
-        <i class="fa fa-camera fa-lg"></i>no image
-      <% end %>
-      </div>
-      <div class="panel panel-default">
-        <div class="panel-heading"><%= current_user.fullname %></div>
-        <div class="panel-body">
-          <ul class="sidebar-list">
-            <% if current_user.provider %>
-              <li>Facebook<span class="pull-right icon-babu"><i class="fa fa-check-circle-o"></i></span></li>
-            <% end %>
-            <% if current_user.phone_number.present? %>
-              <li>Phone Number<span class="pull-right icon-babu"><i class="fa fa-check-circle-o"></i></span></li>
-            <% end %>
-          </ul>
+  <div class="col-md-3">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="image-responsive" id="profile-photo-large">
+          <% if current_user.image.present? %>
+            <%= image_tag current_user.image_url, class: "avatar-full" %>
+          <% else %>
+            <i class="fa fa-camera fa-lg"></i>&nbsp;&nbsp;no image
+          <% end %>
         </div>
+      </div>
+      <div class="panel-body">
+        <ul class="sidebar-list">
+          <li><h4><%= current_user.fullname %></h4></li>>
+          <li><%= link_to "Profile (TBD)", edit_user_registration_path %></li>
+          <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT CONTENT -->
+  <div class="col-md-9">
+    <!-- Notification -->
+    <div class="panel panel-default">
+      <div class="panel-heading">Notifications</div>
+      <div class="panel-body">
       </div>
     </div>
 
-    <div class="col-md-9">
+    <!-- VERIFIED INFO -->
+    <%= render 'verified_info' %>
 
-      <!-- Notification -->
-      <div class="panel panel-default">
-        <div class="panel-heading">Notifications</div>
-        <div class="panel-body">
-        </div>
-      </div>
-
-      <!-- Your Listings -->
-      <div class="panel panel-default">
-        <div class="panel-heading">Your Listings (<%= @rooms.length %>)</div>
-        <div class="panel-body">
-          <%= render partial: "rooms/rooms_list", locals: {rooms: @rooms} %>
-        </div>
-      </div>
-
-    </div>
   </div>
 </div>
