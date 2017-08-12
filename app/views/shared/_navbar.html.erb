@@ -57,7 +57,11 @@
 
       <ul class="nav navbar-nav navbar-right">
         <li>
-          <%= link_to "Become a host", new_room_path %>
+          <% if current_user.rooms.present? %>
+            <%= link_to "Host", new_room_path %>
+          <% else %>
+            <%= link_to "Become a host", new_room_path %>
+          <% end %>
         </li>
         <li>
           <%= link_to "Trips", your_trips_path %>
