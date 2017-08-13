@@ -1,11 +1,14 @@
-
 // BUTTONS
 .btn {
-  color: $ColorWhite;
   border-radius: 5px;
   font-weight: bold;
   padding: auto auto;
   text-align: center;
+}
+
+.btn a {
+  text-decoration: none;
+  color: $ColorWhite;
 }
 
 .btn-block {
@@ -17,6 +20,7 @@
   border: 1px solid $ColorRed;
   background-color: $ColorRed;
   padding: auto 5px;
+  text-decoration: none;
 }
 
 .btn.btn-white {

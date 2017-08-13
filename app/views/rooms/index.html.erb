@@ -3,38 +3,42 @@
   <%= render 'shared/sidebar' %>
 
   <div class="col-md-9">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        Listed
-      </div>
-      <div class="panel-body">
-
-        <% @rooms.each do |room| %>
-          <div class="row">
-            <div class="col-md-5">
-              <% if room.photos.length > 0 %>
-                <%= image_tag room.photos[0].image.thumb.url %>
-              <% else %>
-                No photos added yet
-              <% end %>
-            </div>
-            <div class="col-md-7">
-              <h4><%= room.listing_name %></h4>
-              <p><%= room.address %></p>
-              <p><%= room.updated_at %></p>
-              <div>
-                <%= link_to "Manage Listing (TBD)", listing_room_path(room), class: "btn btn-white" %>
+    <% if @rooms.count > 0 %>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Listed
+        </div>
+        <div class="panel-body">
+            <% @rooms.each do |room| %>
+              <div class="row">
+                <div class="col-md-5">
+                  <% if room.photos.length > 0 %>
+                    <%= image_tag room.photos[0].image.thumb.url %>
+                  <% else %>
+                    No photos added yet
+                  <% end %>
+                </div>
+                <div class="col-md-7">
+                  <h4><%= room.listing_name %></h4>
+                  <p><%= room.address %></p>
+                  <p><%= room.updated_at %></p>
+                  <div>
+                    <%= link_to "Manage Listing (TBD)", listing_room_path(room), class: "btn btn-white" %>
+                  </div>
+                  <div>
+                    <%= link_to "Preview", room_path(room), class: "btn btn-white" %>
+                  </div>
+                </div>
               </div>
-              <div>
-                <%= link_to "Preview", room_path(room), class: "btn btn-white" %>
-              </div>
-            </div>
-          </div>
-        <hr>
-        <% end %>
-
+            <hr>
+            <% end %>
+    <% else %>
+            <h3>You don’t have any listings!</h3>
+            <p>Make money by renting out your extra space on Airbnb. You’ll also get to meet interesting travelers from around the world!</p>
+            <button type="button" class="btn btn-normal"><%= link_to "Post a new listing", new_room_path %></button>
+        </div>
       </div>
-    </div>
+    <% end %>
   </div>
-</div>
+  </div>
 </div>
