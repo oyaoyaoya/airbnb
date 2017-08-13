@@ -1,16 +1,6 @@
 <div class="container">
   <div class="row">
-  <div class="col-md-3">
-    <ul class="sidebar-list">
-      <li class="sidebar-item" <% if current_page?(rooms_path) %> id="active-sidebar" <% end %>><%= link_to "Your Listings", rooms_path, class: "sidebar-link inactive" %></li>
-
-      <li class="sidebar-item" <% if current_page?(your_reservations_path) %> id="active-sidebar" <% end %>><%= link_to "Your Reservations", your_reservations_path, class: "sidebar-link inactive" %></li>
-
-      <li class="sidebar-item" <% if current_page?(your_trips_path) %> id="active-sidebar" <% end %>><%= link_to "Your Trips", your_trips_path, class: "sidebar-link inactive" %></li>
-
-      <li class="sidebar-item"><%= link_to "Add New Listings", new_room_path, class: "btn btn-form" %></li>
-    </ul>
-  </div>
+  <%= render 'shared/sidebar' %>
 
   <div class="col-md-9">
     <div class="panel panel-default">
