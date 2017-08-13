@@ -2,50 +2,57 @@
  <%= render 'shared/sidebar' %>
 
   <div class="col-md-9">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        Your Reservations
-      </div>
+    <% if @rooms.count == 0 %>
       <div class="panel-body">
+      You have no upcoming reservations.<br><br>
+      View past reservation history
+      </div>>
+    <% else %>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Your Reservations
+        </div>
+        <div class="panel-body">
 
-        <% @rooms.each do |room| %>
-            <% room.reservations.each do |reservation| %>
-                <div class="row">
-                  <div class="col-md-2">
-                    <%= reservation.start_date.strftime('%v') %>
-                    <p><%= reservation.status %></p>
-                    <div class="form-inline">
-                      <% if reservation.Waiting? %>
-                          <%= link_to approve_reservation_path(reservation), method: :post do %> <i class="fa fa-thumbs-up fa-lg"></i> <% end %> |
-                          <%= link_to decline_reservation_path(reservation), method: :post do %> <i class="fa fa-thumbs-down fa-lg"></i> <% end %>
+          <% @rooms.each do |room| %>
+              <% room.reservations.each do |reservation| %>
+                  <div class="row">
+                    <div class="col-md-2">
+                      <%= reservation.start_date.strftime('%v') %>
+                      <p><%= reservation.status %></p>
+                      <div class="form-inline">
+                        <% if reservation.Waiting? %>
+                            <%= link_to approve_reservation_path(reservation), method: :post do %> <i class="fa fa-thumbs-up fa-lg"></i> <% end %> |
+                            <%= link_to decline_reservation_path(reservation), method: :post do %> <i class="fa fa-thumbs-down fa-lg"></i> <% end %>
+                        <% end %>
+                      </div>
+                    </div>
+                    <div class="col-md-2">
+                      <%= link_to room_path(reservation.room) do %>
+                          <%= image_tag reservation.room.photo[0].thumb.url %>
                       <% end %>
                     </div>
+                    <div class="col-md-5">
+                      <%= link_to reservation.room.listing_name, room_path(reservation.room) %><br/><br/>
+                      <span>
+                        <%= link_to user_path(reservation.user) do %>
+                          <%= image_tag avatar_url(reservation.user), class: "img-circle avatar-small" %>
+                          <%= reservation.user.fullname %>
+                        <% end %>
+                      </span>
+                    </div>
+                    <div class="col-md-3 text-right">
+                      <%= render partial: "reviews/host_form", locals: {reservation: reservation} if reservation.Approved? %>
+                    </div>
                   </div>
-                  <div class="col-md-2">
-                    <%= link_to room_path(reservation.room) do %>
-                        <%= image_tag reservation.room.photo[0].thumb.url %>
-                    <% end %>
-                  </div>
-                  <div class="col-md-5">
-                    <%= link_to reservation.room.listing_name, room_path(reservation.room) %><br/><br/>
-                    <span>
-                      <%= link_to user_path(reservation.user) do %>
-                        <%= image_tag avatar_url(reservation.user), class: "img-circle avatar-small" %>
-                        <%= reservation.user.fullname %>
-                      <% end %>
-                    </span>
-                  </div>
-                  <div class="col-md-3 text-right">
-                    <%= render partial: "reviews/host_form", locals: {reservation: reservation} if reservation.Approved? %>
-                  </div>
-                </div>
-                <hr/>
+                  <hr/>
 
-            <% end %>
-        <% end %>
+              <% end %>
+          <% end %>
 
+
+        </div>
       </div>
-    </div>
+    <% end %>
   </div>
-</div>
 </div>

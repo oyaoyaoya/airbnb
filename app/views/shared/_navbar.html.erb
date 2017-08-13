@@ -128,7 +128,7 @@
           <ul class="nav navbar-nav subnav-item">
             <li <% if current_page?(dashboard_path) %> id="activepage" <% end %>><%= link_to "Dashboard", dashboard_path %></li>
 
-            <% if current_user.rooms.count > 0 %>
+            <% if current_user.rooms.present? %>
             <li><%= link_to "Stats (TBD)", root_path, disabled: true %></li>
             <% end %>
 
@@ -136,11 +136,21 @@
 
             <li <% if current_page?(rooms_path) %> id="activepage" <% end %> ><%= link_to "Your Listings", rooms_path %></li>
 
-            <li <% if current_page?(your_trips_path) %> id="activepage" <% end %> ><%= link_to "Your Trips", your_trips_path %></li>
+            <% if current_user.rooms.present? %>
+              <li><%= link_to "Host Assist", src="https://www.airbnb.com/host-assist" %></li>
+            <% end %>
+
+            <% if !current_user.rooms.present? %>
+              <li <% if current_page?(your_trips_path) %> id="activepage" <% end %> ><%= link_to "Your Trips", your_trips_path %></li>
+            <% end %>
+
+            <% if current_user.rooms.present? %>
+              <li <% if current_page?(your_reservations_path) %> id="activepage" <% end %> ><%= link_to "Your Reservations", your_reservations_path %></li>
+            <% end %>
 
             <li <% if current_page?(edit_user_registration_path) || current_page?(image_upload_user_path(current_user)) %> id="activepage" <% end %> ><%= link_to "Profile", edit_user_registration_path %></li>
 
-            <li><%= link_to "Account", src="https://www.airbnb.com/users/notifications", disabled: true %></li>
+            <li><%= link_to "Account", src="https://www.airbnb.com/users/notifications" %></li>
 
             <li><%= link_to "Travel Credit (TBD)", root_path, disabled: true %></li>
           </ul>

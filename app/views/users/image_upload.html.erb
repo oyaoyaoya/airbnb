@@ -7,8 +7,8 @@
         <div class="panel-heading">Profile Photo</div>
           <div class="panel-body">
             <div class="panel-left">
-              <% if  %>
-                <%= image_tag current_user.image.url(:medium) %>
+              <% if current_user.image.present? %>
+                <%= image_tag current_user.image_url(:medium) %>
               <% else %>
                 <i class: "fa fa-camera-retro"></i>
                 <p>Uplpoad your profile photo</p>
