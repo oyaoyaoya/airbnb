@@ -16,10 +16,10 @@
   white-space: normal;
 }
 
-.btn.btn-primary {
-  background-color: $ColorGreen;
-  text-decoration: none;
+.btn.btn-form {
   border: 1px solid $ColorGreen;
+  background-color: $ColorGreen;
+  color: $ColorWhite;
 }
 
 .btn.btn-normal {
@@ -57,11 +57,6 @@
   outline: none;
   border-color: #e00007;
   background-color: #e00007;
-}
-
-.btn.btn-form {
-  border: 1px solid $ColorGreen;
-  background-color: $ColorGreen;
 }
 
 .btn.btn-form:active {

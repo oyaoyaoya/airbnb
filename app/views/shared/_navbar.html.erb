@@ -121,14 +121,16 @@
   <% end %>
 
 <!-- BLACK NAVBAR -->
-  <% if (user_signed_in?) && !current_page?(root_path) && !current_page?(search_path) && !current_page?("/rooms/#{params[:id]}") %>
+  <% if (user_signed_in?) && !current_page?(root_path) && !current_page?(search_path) && !current_page?("/rooms/#{params[:id]}") || current_page?(rooms_path) %>
 
       <nav class="navbar-inbetween" style="background-color: #484848">
         <div class="container" id="navbar-black">
           <ul class="nav navbar-nav subnav-item">
             <li <% if current_page?(dashboard_path) %> id="activepage" <% end %>><%= link_to "Dashboard", dashboard_path %></li>
 
+            <% if current_user.rooms.count > 0 %>
             <li><%= link_to "Stats (TBD)", root_path, disabled: true %></li>
+            <% end %>
 
             <li><%= link_to "Inbox (TBD)", root_path, disabled: true %></li>
 
@@ -138,7 +140,7 @@
 
             <li <% if current_page?(edit_user_registration_path) || current_page?(image_upload_user_path(current_user)) %> id="activepage" <% end %> ><%= link_to "Profile", edit_user_registration_path %></li>
 
-            <li><%= link_to "Account (TBD)", root_path, disabled: true %></li>
+            <li><%= link_to "Account", src="https://www.airbnb.com/users/notifications", disabled: true %></li>
 
             <li><%= link_to "Travel Credit (TBD)", root_path, disabled: true %></li>
           </ul>

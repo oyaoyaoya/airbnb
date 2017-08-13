@@ -17,7 +17,9 @@
         <%= @room.address %>
       </div>
       <div class="col-md-4 text-center">
-        <%= image_tag avatar_url(@room.user), class: "img-circle avatar-large" %><br/><br/>
+        <% if @room.user.image_url.present? %>
+          <%= image_tag @room.user.image_url, class: "img-circle avatar-large" %><br/><br/>
+        <% end %>
         <%= @room.user.fullname %>
       </div>
     </div>
