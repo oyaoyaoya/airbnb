@@ -1,11 +1,15 @@
 <div class="container">
-  <div class="alert alert-block alert-with-icon space-top-lg-4 space-top-md-4 hide-sm">
-  <a href="#" class="alert-close"></a>
-    <i class="icon currency-icon alert-icon icon-currency-jpy"></i>
-    <h5>Earn $100 travel credit</h5>
-    <p>Give your friends $40 off their first trip on Airbnb and you’ll get up to ¥ 10,100 travel credit.</p>
-    <a href="https://www.airbnb.com/invite?r=35" class="btn btn-primary space-sm-2">Invite Friends</a>
-    <button type="button" class="btn space-sm-2"></button>
+  <div class="alert alert-block alert-with-icon space-top-lg-4 space-top-md-4 hide-sm col-md-12">
+    <div class="col-md-1" id="adicon-usd">
+      <i class="fa fa-usd fa-lg" aria-hidden="true"></i>
+    </div>
+    <div class="col-md-5">
+      <h5>Earn $100 travel credit</h5>
+      <p>Give your friends $40 off their first trip on Airbnb and you’ll get up to ¥ 10,100 travel credit.</p>
+      <a href="https://www.airbnb.com/invite?r=35" class="btn btn-primary">Invite Friends</a>
+      <button type="button" class="btn space-sm-2">Later</button>
+    </div>
+    <div class="alert-close col-md-1" id="adicon-close">×</div>
   </div>
 
   <%= render 'users/sidebar' %>

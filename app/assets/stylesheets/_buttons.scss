@@ -16,11 +16,18 @@
   white-space: normal;
 }
 
+.btn.btn-primary {
+  background-color: $ColorGreen;
+  text-decoration: none;
+  border: 1px solid $ColorGreen;
+}
+
 .btn.btn-normal {
   border: 1px solid $ColorRed;
   background-color: $ColorRed;
   padding: auto 5px;
   text-decoration: none;
+  color: $ColorWhite;
 }
 
 .btn.btn-white {
