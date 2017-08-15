@@ -26,6 +26,8 @@ Rails.application.routes.draw do
       get 'location'
       get 'preload'
       get 'preview'
+      get 'co_hosts'
+      get 'local_laws'
     end
     resources :photos, only: [:create, :destroy]
     resources :reservations, only: [:create]
