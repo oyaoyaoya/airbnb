@@ -70,17 +70,6 @@ before_action :is_authorised, only: [:listing, :pricing, :description, :photo_up
   def photo_upload
     @photos = @room.photos
   end
-
-  def preview
-    start_date = Date.parse(params[:start_date])
-    end_date = Date.parse(params[:end_date])
-
-    output = {
-      conflict: is_conflict(start_date, end_date, @room)
-    }
-
-    render json: output
-  end
   
   def listing
   end

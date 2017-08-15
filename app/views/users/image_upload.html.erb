@@ -1,17 +1,18 @@
 <div class="container">
 <%= render 'user_menu' %>
-
   <div class="col-md-8">
-    <%= form_for current_user do |f| %>
+    <%= form_for current_user, url: users_path, method: 'post' do |f| %>
       <div class="panel panel-default">
         <div class="panel-heading">Profile Photo</div>
           <div class="panel-body">
-            <div class="panel-left">
+            <div class="panel-left user-image">
               <% if current_user.image.present? %>
                 <%= image_tag current_user.image_url(:medium) %>
               <% else %>
-                <i class: "fa fa-camera-retro"></i>
-                <p>Uplpoad your profile photo</p>
+                <div class="user-image">
+                  <i class="fa fa-camera-retro"></i>
+                  <p>Upload your profile photo</p>
+                </div>
               <% end %>
             </div>
             <div class="panel-right">
@@ -21,7 +22,7 @@
               <br>
               <div class="form-group">
                 <span class="btn btn-default btn-file text-babu">Select Photos
-                  <%= file_field_tag :image, type: :file, multiple: false %>
+                  <%= f.file_field :image, type: :file %>
                 </span>
               </div>
             </div>

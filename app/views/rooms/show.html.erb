@@ -151,10 +151,12 @@
      <hr>
   </div>
 
-  <div class="body-right reservation-panel">
-    <!-- Reservation Form -->
-    <%= render 'reservations/form' %>
-  </div>
+  <% if !@room.user == current_user %>
+    <div class="body-right reservation-panel">
+      <!-- Reservation Form -->
+      <%= render 'reservations/form' %>
+    </div>
+  <% end %>
 
   <!-- FULL WIDTH PANEL -->
   <div class="body-full">

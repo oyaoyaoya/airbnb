@@ -9,7 +9,7 @@ Rails.application.routes.draw do
                 registraions: 'registrations'
               }
 
-  resources :users, only: [:show, :update] do
+  resources :users, only: [:show, :create, :update] do
     member do
       get 'image_upload'
     end
