@@ -1,6 +1,6 @@
   <!-- WHITE NAVBAR -->
     <h1>Listings</h1>
-    <a href="#" class="btn btn-form">View calendar (TBD)</a>
+    <%= link_to "View calendar", host_calendar_path, class: "btn btn-form" %>
     <nav class="navbar-inbetween" >
       <ul class="nav navbar-nav subnav-item">
         <li <% if current_page?(listing_details_room_path) %> id="activetab" <% end %>>
