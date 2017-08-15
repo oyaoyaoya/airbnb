@@ -21,7 +21,7 @@
                 <div class="col-md-7">
                   <h4><%= room.listing_name %></h4>
                   <p><%= room.address %></p>
-                  <p><%= room.updated_at %></p>
+                  <p><%= room.updated_at.strftime("Last updated on %B %m, %Y") %></p>
                   <div>
                     <%= link_to "Manage Listing", listing_details_room_path(room), class: "btn btn-white" %>
                   </div>
