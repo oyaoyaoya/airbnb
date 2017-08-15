@@ -19,7 +19,7 @@ before_action :is_authorised, only: [:listing, :pricing, :description, :photo_up
   def create
     @room = current_user.rooms.build(room_params)
     if @room.save
-      redirect_to listing_room_path(@room), notice: "Saved.."
+      redirect_to listing_room_path(@room), notice: "Saved but not published yet.."
     else
       flash[:alert] = "Something went wrong..."
     end
