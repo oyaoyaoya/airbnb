@@ -3,7 +3,7 @@
   <%= render 'shared/sidebar' %>
 
   <div class="col-md-9">
-    <% if @rooms.count > 0 %>
+    <% if @rooms.present? %>
       <div class="panel panel-default">
         <div class="panel-heading">
           Listed

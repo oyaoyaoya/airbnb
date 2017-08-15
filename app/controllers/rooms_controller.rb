@@ -71,13 +71,6 @@ before_action :is_authorised, only: [:listing, :pricing, :description, :photo_up
     @photos = @room.photos
   end
 
-  def preload
-    today = Date.today
-    reservations = @room.reservations.where("start_date >= ? OR end_date >= ?", today, today)
-
-    render json: reservations
-  end
-
   def preview
     start_date = Date.parse(params[:start_date])
     end_date = Date.parse(params[:end_date])
