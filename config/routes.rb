@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   resources :rooms, except: [:edit] do
     member do
       get 'listing'
+      get 'listing_details'
       get 'pricing'
       get 'description'
       get 'photo_upload'

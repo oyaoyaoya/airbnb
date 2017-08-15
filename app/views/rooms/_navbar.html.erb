@@ -1,0 +1,23 @@
+  <!-- WHITE NAVBAR -->
+    <nav class="navbar-inbetween" >
+      <ul class="nav navbar-nav subnav-item">
+        <li>
+          <%= link_to "Listing details", root_path %>
+        </li>
+        <li <% if current_page?(search_path) %> id="activetab" <% end %> >
+          <%= link_to "Booking settings", search_path %>
+        </li>
+        <li>
+          <%= link_to "Pricing", root_path %>
+        </li>
+        <li>
+          <%= link_to "Availability", root_path %>
+        </li>
+        <li>
+          <%= link_to "Local laws", root_path %>
+        </li>
+        <li>
+          <%= link_to "Co-hosts", root_path %>
+        </li>
+      </ul>
+    </nav>
