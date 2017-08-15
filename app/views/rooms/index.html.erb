@@ -23,7 +23,7 @@
                   <p><%= room.address %></p>
                   <p><%= room.updated_at %></p>
                   <div>
-                    <%= link_to "Manage Listing (TBD)", listing_room_path(room), class: "btn btn-white" %>
+                    <%= link_to "Manage Listing", listing_details_room_path(room), class: "btn btn-white" %>
                   </div>
                   <div>
                     <%= link_to "Preview", room_path(room), class: "btn btn-white" %>

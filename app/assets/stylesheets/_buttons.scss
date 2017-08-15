@@ -40,6 +40,15 @@
   float: left;
 }
 
+.btn.btn-edit {
+  border: 2px solid $ColorGreen;
+  background-color: $ColorWhite;
+  padding: auto 10px;
+  margin: auto 3px;
+  color: $ColorGreen;
+  float: right;
+}
+
 .btn:hover, .btn:focus {
   color: $ColorWhite;
 }

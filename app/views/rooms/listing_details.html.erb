@@ -5,8 +5,8 @@
   <div>
     <h5>Edit mode: </h5>You can change the details of your listing below.
   </div>
-
-  Preview listing
+  <a href=room_path class="btn btn-form">Preview listing</a>
+  
   <!-- IMAGE -->
       <div class="col-md-12">
         <%= image_tag @room.photos[0].image.url, width: "100%" %>
@@ -92,10 +92,30 @@
     </div>
     <hr/>
 
+    <!-- REVIEWS -->
+    <div class="row">
+      <div class="col-md-12">
+        <h3>Reviews</h3>
+        <% if @guest_reviews.present? %>
+          <h3>
+            <%= pluralize(@guest_reviews.count, "Review") %>
+            <span id="average_rating"></span>
+          </h3>
+          <div class="container">
+            <div><%= render "reviews/guest_list" %></div>
+          </div>
+        <% else %>
+          <p class="annotation">This home doesn’t have any reviews. If you stay here, your review will appear here.</p>
+        <% end %>
+        <br>
+        <hr>
+      </div>
+    </div>
+
     <!-- Carousel -->
     <div class="row">
 
-      <% if @photos.length > 0 %>
+      <% if @photos.present? %>
           <div id="myCarousel" class="carousel slide" data-ride="carousel">
           <!-- Indicators -->
           <ol class="carousel-indicators">
@@ -128,25 +148,6 @@
     </div>
     <hr/>
 
-    <!-- REVIEWS -->
-    <div class="row">
-      <div class="col-md-12">
-        <h3>Reviews</h3>
-        <% if @guest_reviews.count > 0 %>
-          <h3>
-            <%= pluralize(@guest_reviews.count, "Review") %>
-            <span id="average_rating"></span>
-          </h3>
-          <div class="container">
-            <div><%= render "reviews/guest_list" %></div>
-          </div>
-        <% else %>
-          <p class="annotation">This home doesn’t have any reviews. If you stay here, your review will appear here.</p>
-        <% end %>
-        <br>
-        <hr>
-      </div>
-    </div>
 
     <%if @room.user_id == current_user.id %>
       <%= link_to "Delete this room", room_path(@room), method: :destroy, class: "btn btn-normal" %>
@@ -155,10 +156,6 @@
      <hr>
   </div>
 
-  <div class="body-right reservation-panel">
-    <!-- Reservation Form -->
-    <%= render 'reservations/form' %>
-  </div>
 </div>
 
 

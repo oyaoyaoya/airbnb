@@ -1,8 +1,9 @@
   <!-- WHITE NAVBAR -->
     <h1>Listings</h1>
+    <a href="#" class="btn btn-form">View calendar (TBD)</a>
     <nav class="navbar-inbetween" >
       <ul class="nav navbar-nav subnav-item">
-        <li <% if current_page?(listing_details_path) %> id="activetab" <% end %>>
+        <li <% if current_page?(listing_details_room_path) %> id="activetab" <% end %>>
           <%= link_to "Listing details", root_path %>
         </li>
         <li <% if current_page?(root_path) %> id="activetab" <% end %> >
@@ -14,10 +15,10 @@
         <li <% if current_page?(root_path) %> id="activetab" <% end %>>
           <%= link_to "Availability (TBD)", root_path %>
         </li>
-        <li <% if current_page?(local_laws_path) %> id="activetab" <% end %>>
+        <li <% if current_page?(local_laws_room_path) %> id="activetab" <% end %>>
           <%= link_to "Local laws", root_path %>
         </li>
-        <li <% if current_page?(co_hosts_path) %> id="activetab" <% end %>>
+        <li <% if current_page?(co_hosts_room_path) %> id="activetab" <% end %>>
           <%= link_to "Co-hosts", root_path %>
         </li>
       </ul>
