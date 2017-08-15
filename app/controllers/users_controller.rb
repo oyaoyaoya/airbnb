@@ -9,7 +9,6 @@ class UsersController < ApplicationController
   end
 
   def create
-    binding.pry
     if current_user.update(set_params)
       flash[:notice] = "Saved..."
     else

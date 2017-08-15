@@ -7,7 +7,7 @@
           <div class="panel-body">
             <div class="panel-left user-image">
               <% if current_user.image.present? %>
-                <%= image_tag current_user.image_url(:medium) %>
+                <%= image_tag current_user.image_url(:profile) %>
               <% else %>
                 <div class="user-image">
                   <i class="fa fa-camera-retro"></i>
@@ -15,7 +15,7 @@
                 </div>
               <% end %>
             </div>
-            <div class="panel-right">
+            <div class="panel-right ">
               <p class="annotation">Clear frontal face photos are an important way for hosts and guests to learn about each other. It’s not much fun to host a landscape! Be sure to use a photo that clearly shows your face and doesn’t include any personal or sensitive info you’d rather not have hosts or guests see.</p>
               <p style="line-height:6px;"></p>
               <p class="annotation">Your public profile only shows your first name. When you request a booking, your host will see your first and last name.</p>

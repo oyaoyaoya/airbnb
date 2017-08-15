@@ -12,8 +12,13 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   version :thumb do
-    process :resize_to_fit => [288, 185]
+    process :resize_to_fit => [268, 185]
   end
+
+  version :profile do
+    process :resize_to_fit => [225, 225]
+  end
+
   version :medium do
     process :resize_to_fit => [333, 222]
   end
