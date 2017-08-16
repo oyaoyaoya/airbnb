@@ -25,6 +25,9 @@
                   <%= f.file_field :image, type: :file %>
                 </span>
               </div>
+              <div class="actions">
+                <%= f.submit "Save", class: 'btn btn btn-normal' %>
+              </div>
             </div>
             <br>
           </div>
@@ -65,10 +68,6 @@
             <li>What are some of your favorite things?</li>
           </ul>
         </div>
-    </div>
-
-    <div class="actions">
-      <%= f.submit "Save", class: 'btn btn btn-normal' %>
     </div>
 
     <% end %>

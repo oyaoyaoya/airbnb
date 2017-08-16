@@ -58,7 +58,28 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
           <% if user_signed_in? && current_user.rooms.present? %>
-            <%= link_to "Host", new_room_path %>
+            
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                    role="button" aria-haspopup="true" aria-expanded="false">
+                    Host
+            </a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "Dashboard", dashboard_path %></li>
+
+              <li><%= link_to "Calendar", root_path, disabled: true %></li>
+
+              <li><%= link_to "Manage Listings", rooms_path %></li>
+
+              <li><%= link_to "List Your Space", rooms_path %></li>
+
+              <li><%= link_to "Your Reservations", your_reservations_path %></li>
+
+              <li><%= link_to "Reviews (TBD)", root_path %></li>
+
+              <li><%= link_to "Host Assist", src="https://www.airbnb.com/host-assist" %></li>
+
+              <li><%= link_to "Experience Hosting", src="https://www.airbnb.com/host/experiences" %></li>
+              </ul>
           <% else %>
             <%= link_to "Become a host", new_room_path %>
           <% end %>

@@ -151,7 +151,7 @@
      <hr>
   </div>
 
-  <% if !@room.user == current_user %>
+  <%if @room.user_id != current_user.id %>
     <div class="body-right reservation-panel">
       <!-- Reservation Form -->
       <%= render 'reservations/form' %>
