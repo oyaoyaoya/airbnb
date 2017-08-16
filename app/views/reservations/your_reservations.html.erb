@@ -27,7 +27,7 @@
                         <% end %>
                       </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-5">
                       <%= link_to room_path(reservation.room) do %>
                           <%= image_tag reservation.room.photos[0].image.thumb.url %>
                       <% end %>
@@ -43,7 +43,7 @@
                         <% end %>
                       </span>
                     </div>
-                    <div class="col-md-2 text-right">
+                    <div class="col-md-2">
                       <%= render partial: "reviews/host_form", locals: {reservation: reservation} if reservation.Approved? %>
                     </div>
                   </div>
