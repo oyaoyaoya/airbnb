@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :create, :update] do
     member do
       get 'image_upload'
+      get 'reviews_about_you'
     end
   end
 

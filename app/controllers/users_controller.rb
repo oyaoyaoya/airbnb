@@ -17,6 +17,11 @@ class UsersController < ApplicationController
     redirect_back(fallback_location: request.referer)
   end
 
+  def reviews_about_you
+    @guest_reviews = Review.where(type: "GuestReview", host_id: current_user.id)
+    @host_reviews = Review.where(type: "HostReview", guest_id: current_user.id)
+  end
+
   def set_params
     params.require(:user).permit(:image)
   end
