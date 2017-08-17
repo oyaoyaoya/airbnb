@@ -3,6 +3,10 @@
   width: 100%;
 }
 
+.navbar-right {
+  height: 64px;
+}
+
 .navbar-default {
   background-color: $ColorWhite;
 }
@@ -15,7 +19,6 @@
 
 .navbar-inbetween {
   height: 40px;
-  background-color: $ColorDarkgray2;
 }
 
 .navbar-default li {
