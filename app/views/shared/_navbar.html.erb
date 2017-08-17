@@ -167,7 +167,7 @@
   <% end %>
 
 <!-- BLACK NAVBAR -->
-  <% if (user_signed_in?) && !current_page?(root_path) && !current_page?(search_path) && !current_page?("/rooms/#{params[:id]}") || current_page?(rooms_path) %>
+  <% if (user_signed_in?) && !current_page?(root_path) && !current_page?(search_path) && !current_page?("/rooms/#{params[:id]}") && !current_page?(host_calendar_path) || current_page?(rooms_path) %>
 
       <nav class="navbar-inbetween" style="background-color: #484848">
         <div class="container" id="navbar-black">
