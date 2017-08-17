@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     member do
       get 'image_upload'
       get 'reviews_about_you'
+      get 'reviews_by_you'
     end
   end
 

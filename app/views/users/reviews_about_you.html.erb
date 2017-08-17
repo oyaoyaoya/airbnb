@@ -4,12 +4,24 @@
   <div class="col-md-9">
     <%= render 'navbar' %>
 
+    <% if !@host_reviews.present? && !@guest_reviews.present? %>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+        Past Reviews
+        </div>
+        <div class="panel-body">
+          <p>Reviews are written at the end of a reservation through Airbnb. Reviews you’ve received will be visible both here and on your public profile.<br><br>No one has reviewed you yet.</p>
+        </div>
+      </div>
+    <% end %>
+
+    <% if @host_reviews.present? %>
       <div class="panel panel-default">
         <div class="panel-heading">
           Host Reviews
         </div>
         <div class="panel-body">
-          <% if @host_reviews.present? %>
+          
             <% @host_reviews.order(id: :desc).each do |r| %>
               <div class="row">
                 <div class="col-md-3 text-center">
@@ -31,19 +43,16 @@
                 </div>
               </div>
             <% end %>
-          <% else%>
-            <p>No guest reviews written yet.</p>
-          <% end %>
         </div>
       </div>
-
+    <% end %>
     
+    <% if @guest_reviews.present? %>
       <div class="panel panel-default">
         <div class="panel-heading">
           Guest Reviews
         </div>
         <div class="panel-body">
-        <% if @guest_reviews.present? %>
           <% @guest_reviews.order(id: :desc).each do |r| %>
             <div class="row">
               <div class="col-md-3 text-center">
@@ -65,12 +74,9 @@
               </div>
             </div>
           <% end %>
-        <% else%>
-          <p>No guest review written yet.</p>
-        <% end %>
         </div>
-
       </div>
+      <% end %>
 
     </div>
 </div>
