@@ -20,6 +20,10 @@
 
 <div id="calendar"></div>
 
+<div class="col-md-6">
+  <div class="pull-right">aa</div>
+</div>
+
 <script>
   window.reservations = <%= raw @events.to_json %>
 
@@ -46,16 +50,16 @@
       right: 'prev,next'
     }
     defaultDate: $('#start-date').val(),
-        events: showReservations(reservations),
-    eventRender: function(event, element, view) {
-      return $(`
-        <a class="fc-day-grid-event fc-h-event fc-event fc-start fc-end">
-          <div class="fc-content ${event.status}">
-            <span class="fc-title"><img class="img-circle avatar-small" src="${event.image}"> ${event.name}</span>
-          </div>
-        </a>
-      `)
-    }
+    //     events: showReservations(reservations),
+    // eventRender: function(event, element, view) {
+    //   return $(`
+    //     <a class="fc-day-grid-event fc-h-event fc-event fc-start fc-end">
+    //       <div class="fc-content ${event.status}">
+    //         <span class="fc-title"><img class="img-circle avatar-small" src="${event.image}"> ${event.name}</span>
+    //       </div>
+    //     </a>
+    //   `)
+    // }
   })
 
 
