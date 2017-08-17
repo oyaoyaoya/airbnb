@@ -1,10 +1,8 @@
-<% if @rooms.present? %>
-<div class="col-md-12">
-  <%= render 'navbar'%>
-</div>
-  <div class="col-md-6">
+<div class="container">
+<div class="col-md-6">
+  <% if @rooms.present? %>
     <%= search_form_for @search, class: 'form-group', remote: true, url: host_calendar_path do |f| %>
-      <div class="col-md-6 select">
+      <div class="select">
         <div class="form-group">
           <label>Your Listings</label>
           <%= f.select :room_id, options_for_select(@rooms.collect {|u| [u.listing_name, u.id]}, params[:room_id]), {}, {
@@ -16,15 +14,9 @@
 
       <%= f.hidden_field :start_date, id: "start-date", value: params[:start_date], onchange: "$(this.form).submit()" %>
     <% end %>
-  </div>
-<% end %>
-
-<%= render 'form' %>
-
-<div id="calendar"></div>
-
-<div class="col-md-6">
-  <div class="pull-right">aa</div>
+  <% end %>
+  <br><br>
+  <div id="calendar"></div>
 </div>
 
 <script>
@@ -32,7 +24,6 @@
 
   function showReservations(data) {
     return data.map(function (e) {
-
       return {
         name: e.fullname,
         start: e['start_date'],
@@ -48,9 +39,9 @@
       left: 'title',
       center: '',
       right: 'prev,next'
-    }
+    },
     defaultDate: $('#start-date').val(),
-        events: showReservations(reservations),
+    events: showReservations(reservations),
     eventRender: function(event, element, view) {
       return $(`
         <a class="fc-day-grid-event fc-h-event fc-event fc-start fc-end">
@@ -61,6 +52,9 @@
       `)
     }
   })
-
-
 </script>
+
+<div class="col-md-6">
+  <div class="pull-right">aa</div>
+</div>
+</div>
