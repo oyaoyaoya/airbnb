@@ -7,7 +7,7 @@
           <label>Your Listings</label>
           <%= f.select :room_id, options_for_select(@rooms.collect {|u| [u.listing_name, u.id]}, params[:room_id]), {}, {
             onchange: "$(this.form).submit()",
-            class: "form-control"
+            class: "form-control", style: "margin-bottom:25px"
           } %>
         </div>
       </div>
@@ -15,7 +15,7 @@
       <%= f.hidden_field :start_date, id: "start-date", value: params[:start_date], onchange: "$(this.form).submit()" %>
     <% end %>
   <% end %>
-  <br><br>
+  <br>
   <div id="calendar"></div>
 </div>
 
@@ -32,7 +32,6 @@
         name: e.fullname,
         start: e['start_date'],
         end: e['end_date'],
-        image: e.image,
         status: e.status
       }
     })
