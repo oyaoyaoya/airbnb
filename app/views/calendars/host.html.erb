@@ -15,8 +15,11 @@
       <%= f.hidden_field :start_date, id: "start-date", value: params[:start_date], onchange: "$(this.form).submit()" %>
     <% end %>
   <% end %>
+
   <br>
   <div id="calendar"></div>
+  
+  <%= render 'form' %>
 </div>
 
 <script>
@@ -58,8 +61,17 @@
       <% if @rooms.present? %>
             cell.append('<span class="day-price">' + '$' + '<%= @room.price %>' + '</span>')
       <% end %>
-    }
+    },
+    selectable: true,
+    select: function(start, end, jsEvent, view) {
+      var start_date = moment(start);
+      var end_date = moment(end).subtract(1, "days");
+
+      $('#new_calendar').modal('show');
+
+      }
   });
+
     $('.fc-prev-button').click(function() {
     var current = new Date($('#start-date').val());
     var prev = new Date(current.getFullYear(), current.getMonth() - 1, 1)
