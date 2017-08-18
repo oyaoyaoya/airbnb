@@ -1,5 +1,5 @@
 <div class="container">
-<div class="col-md-6">
+<div class="col-md-7">
   <% if @rooms.present? %>
     <%= search_form_for @search, class: 'form-group', remote: true, url: host_calendar_path do |f| %>
       <div class="select">
@@ -53,8 +53,4 @@
     }
   })
 </script>
-
-<div class="col-md-6">
-  <div class="pull-right">aa</div>
-</div>
 </div>

@@ -56,9 +56,10 @@
       <% end %>
 
       <ul class="nav navbar-nav navbar-right">
-        <li>
+        
           <% if user_signed_in? && current_user.rooms.present? %>
-            
+            <li><%= link_to "Get Hosting Help", src="https://www.airbnb.com/co-hosting?ref=header_button" %></li>
+            <li>
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"
                     role="button" aria-haspopup="true" aria-expanded="false">
                     Host
@@ -80,10 +81,11 @@
 
               <li><%= link_to "Experience Hosting", src="https://www.airbnb.com/host/experiences" %></li>
               </ul>
+            </li>
           <% else %>
-            <%= link_to "Become a host", new_room_path %>
+            <li><%= link_to "Become a host", new_room_path %></li>
           <% end %>
-        </li>
+        
         <li>
           <%= link_to "Trips", your_trips_path %>
         </li>
