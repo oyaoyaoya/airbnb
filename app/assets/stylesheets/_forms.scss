@@ -51,6 +51,11 @@
   -webkit-appearance: none;
 }
 
+.form-group input[type="radio"] {
+  height: 15px;
+  margin-right: 10px;
+}
+
 .form-group input[type="checkbox"]:checked:before {
   content: '\2713';
   position: absolute;
