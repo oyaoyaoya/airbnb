@@ -17,4 +17,5 @@
 //= require toastr
 //= require moment
 //= require fullcalendar
+//= require cable
 //= require_tree .

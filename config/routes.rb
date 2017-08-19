@@ -57,4 +57,6 @@ Rails.application.routes.draw do
   end
   
   get '/host_calendar' => "calendars#host"
+  mount ActionCable.server => '/cable'
+
 end
