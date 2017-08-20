@@ -89,9 +89,19 @@
         <li>
           <%= link_to "Trips", your_trips_path %>
         </li>
-        <li>
-          <%= link_to "Messages", conversations_path %>
-        </li>
+        <% if user_signed_in? %>
+          <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                    role="button" aria-haspopup="true" aria-expanded="false">
+                    Messages
+              </a>
+              <ul class="dropdown-menu">
+                <li><%= link_to "Messages", conversations_path %></li>
+                <li><%= link_to "Notifications", notifications_path %></li>
+                  <span class="badge" id="navbar_num_of_unread"><%= current_user.unread if current_user.unread > 0 %></span>
+              </ul>
+          </li>
+        <% end %>
         <li>
           <%= link_to "Help (TBD)", root_path %>
         </li>

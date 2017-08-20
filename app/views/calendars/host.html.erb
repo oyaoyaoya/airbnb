@@ -24,7 +24,7 @@
 
 <script>
   window.reservations = <%= raw @events.to_json %>
-
+  window.days = <%= raw @days.to_json %>
   function showReservations(data) {
 
     return data.map(function (e) {
@@ -58,8 +58,15 @@
       `);
     },
     dayRender: function(date, cell) {
+      var dayInfo = $.grep(days, function(e) {
+        return e.day === date.format();
+      });
       <% if @rooms.present? %>
-            cell.append('<span class="day-price">' + '$' + '<%= @room.price %>' + '</span>')
+        if (dayInfo[0].status == "Not_Available") {
+            cell.addClass('fc-past');
+          } else {
+            cell.append('<span class="day-price">' + '$' + dayInfo[0].price + '</span>')
+          }
       <% end %>
     },
     selectable: true,
