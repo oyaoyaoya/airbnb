@@ -22,6 +22,10 @@
     <%= render 'shared/navbar' %>
     <%= render 'shared/message' %>
     <%= yield %>
+    <% if current_user %>
+        <input type="hidden" id="user_id" value="<%= current_user.id %>">
+    <% end %>
+
     <%= render 'shared/footer' %>
   </body>
 </html>
