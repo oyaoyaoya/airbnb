@@ -1,5 +1,5 @@
 # config valid only for current version of Capistrano
-lock '3.9.0'
+lock '3.7.1'
 
 set :application, 'airbnb'
 set :repo_url,  'git@github.com:ryokotmng/airbnb.git'
