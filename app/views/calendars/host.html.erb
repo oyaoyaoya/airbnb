@@ -61,12 +61,17 @@
       var dayInfo = $.grep(days, function(e) {
         return e.day === date.format();
       });
+
       <% if @rooms.present? %>
-        if (dayInfo[0].status == "Not_Available") {
+        if (dayInfo.length > 0) {
+          if (dayInfo[0].status == "Not_Available") {
             cell.addClass('fc-past');
           } else {
             cell.append('<span class="day-price">' + '$' + dayInfo[0].price + '</span>')
           }
+        } else {
+          cell.append('<span class="day-price">' + '$<%= @room.price %>' + '</span>')
+        }
       <% end %>
     },
     selectable: true,
@@ -103,7 +108,7 @@
         $('#calendar_end_date').val(end_date.format("YYYY-MM-DD"));
       }
 
-      }
+    }
   });
 
     $('.fc-prev-button').click(function() {

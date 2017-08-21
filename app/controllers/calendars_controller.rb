@@ -46,9 +46,11 @@ class CalendarsController < ApplicationController
       @events = @room.reservations.joins(:user)
                       .select('reservations.*, users.fullname, users.image, users.email, users.uid')
                       .where('(start_date BETWEEN ? AND ?) AND status <> ?', first_of_month, end_of_month, 2)
+      @days = Calendar.where("room_id = ? AND day BETWEEN ? AND ?", params[:room_id], first_of_month, end_of_month)
     else
       @room = nil
       @events = []
+      @days = []
     end
   end
 
