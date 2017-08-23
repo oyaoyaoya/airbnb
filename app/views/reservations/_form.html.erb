@@ -1,7 +1,6 @@
 <div class="panel panel-default" id="scrollTop">
   <div class="panel-heading", id="reservationpanel-heading"><p class="pull-left"><% if @room.Instant? %><i class="fa fa-bolt pull-left" style="color: #ffb400"></i><% end %>
   from&nbsp;$<%= @room.price %>&nbsp;Per Night</p>
-  </div>
   <div class="panel-body">
     <%= form_for([@room, @room.reservations.new]) do |f| %>
       <div class="row">
@@ -15,7 +14,6 @@
         </div>
       </div>
 
-<!--       <h4 class="message-alert text-center col-md-6"><span id="message"></span></h4> -->
       <div id="preview" style="display: none">
         <table class="reservation-table">
           <tbody>
@@ -154,12 +152,17 @@
         });
       }
     });
+    var nav = $('#scrollTop'),
+    offset = nav.offset();
+
+    $(window).scroll(function () {
+      if($(window).scrollTop() > offset.top - 20) {
+        nav.addClass('fixed');
+      } else {
+        nav.removeClass('fixed');
+      }
+    });
 
   });
 
-  // $(document).ready(function(){
-  //   $('navbar-collapse').scroll(function(){
-  //     $('#scrollTop').text($(this).scrollTop());
-  //   });
-  // });
 </script>
