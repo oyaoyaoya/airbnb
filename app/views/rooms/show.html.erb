@@ -18,8 +18,11 @@
       </div>
       <div class="col-md-4 text-center">
         <% if @room.user.image_url.present? %>
-          <%= image_tag @room.user.image_url, class: "img-circle avatar-large" %><br/><br/>
+          <%= image_tag @room.user.image_url, class: "img-circle avatar-large" %>
+        <% else %>
+          <%= image_tag "https://s.gravatar.com/avatar/e90c5b356d93f510fb660e271ec62782?s=80", class: "image-circle avatar-medium" %>
         <% end %>
+        <br/><br/>
         <%= @room.user.fullname %>
       </div>
     </div>

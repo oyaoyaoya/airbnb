@@ -36,12 +36,12 @@
       <br/>
 
       <% if @room.Instant? %>
-        <%= f.submit "Book Now", id: "btn_book", class: "btn btn-normal btn-block", disabled: true %>
+        <%= f.submit "Book", id: "btn_book", class: "btn btn-normal btn-block", disabled: true %>
       <% else %>
-        <%= f.submit "Request Now", id: "btn_book", class: "btn btn-normal btn-block", disabled: true %>
+        <%= f.submit "Request to Book", id: "btn_book", class: "btn btn-normal btn-block", disabled: true %>
       <% end %>
       <p style="line-height:6px;"></p>
-      <p>100% refundable · You won’t be charged yet</p>
+      <p><% if @room.Instant? %>100% refundable · <% end %>You won’t be charged yet</p>
     <% end %>
   </div>
 </div>
