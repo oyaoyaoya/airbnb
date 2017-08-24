@@ -1,7 +1,11 @@
 <br>
 <footer class="footer">
-<% if current_page?(search_path) %>
-  <p class="annotation" style="text-align:center">Enter dates to see full pricing. Additional fees apply. Taxes may be added.</p>
+<% if current_page?(search_path) || current_page?(root_path) %>
+  <div class="container">
+    <div id="left">
+      <p class="annotation" style="text-align:center">Enter dates to see full pricing. Additional fees apply. Taxes may be added.</p>
+    </div>
+  </div>
 <% else %>
 <br>
 <hr>

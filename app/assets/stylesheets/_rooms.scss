@@ -64,6 +64,13 @@
 }
 
 // SEARCH
+
+#search-container {
+  margin-top: 104px;
+  min-height: 500px;
+}
+
+
 #main {
   height: 100%;
   overflow: hidden;
@@ -76,10 +83,10 @@
 }
 
 #right {
-  position: absolute;
-  margin-top: 105px;
-  top: 0;
-  right: 0;
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  margin-top: 104px;
   width: 450px;
   height: 100%;
 }
@@ -87,9 +94,6 @@
 #map{
   width: 100%;
   height: 100%;
-}
-.map {
-  margin-top:20px;
 }
 
 .map_price {
