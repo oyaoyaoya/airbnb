@@ -35,15 +35,11 @@
   </ul>
   <hr/>
 
-  <% if !@room.price.blank? && !@room.listing_name.blank? && !@room.photos.blank? && !@room.address.blank? %>
-    <%= form_for @room do |f| %>
-      <%= f.check_box(:active) %>
-      <%= label_tag(:active, "This room is active.") %>
-      <p style="line-height:6px;"></p>
-      <%= link_to "Publish", room_path(@room), method: :get, class: "btn btn-normal", data: {confirm: "Are you ok to publish this room?"} %>
-    <% end %>
-  <% else %>
-    <button type="button", class="btn btn-normal", disabled="true">Publish</button>
+  <% is_ready = !@room.price.blank? && !@room.listing_name.blank? && !@room.photos.blank? && !@room.address.blank? %>
+
+  <%= form_for @room do |f| %>
+    <%= f.hidden_field :active, value: true %>
+    <%= f.submit "Publish", class: "btn btn-normal", disabled: !is_ready, data: {confirm: "Are you ok to publish this room?"} %>
   <% end %>
 
 </div>

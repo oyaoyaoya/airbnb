@@ -35,7 +35,7 @@
     <% else %>
             <h3>You don’t have any listings!</h3>
             <p>Make money by renting out your extra space on Airbnb. You’ll also get to meet interesting travelers from around the world!</p>
-            <button type="button" class="btn btn-normal"><%= link_to "Post a new listing", new_room_path %></button>
+            <%= link_to "Post a new listing", new_room_path, class: "btn btn-normal" %>
         </div>
       </div>
     <% end %>
