@@ -14,6 +14,7 @@ Rails.application.routes.draw do
       get 'image_upload'
       get 'reviews_about_you'
       get 'reviews_by_you'
+      get 'dashboard'
     end
   end
 
@@ -43,7 +44,7 @@ Rails.application.routes.draw do
   get '/your_reservations' => 'reservations#your_reservations'
 
   get 'search' => 'pages#search'
-  get 'dashboard' => 'dashboards#index'
+  get 'dashboard' => 'users#dashboard'
 
   resources :reservations, only: [:approve, :decline] do
     member do

@@ -14,7 +14,7 @@
     <div id="navbar" class="navbar-collapse collapse">
       <%= form_tag search_path, class: "navbar-form navbar-left", method: :get do %>
 
-        <% if current_page?(root_path) && !current_page?(search_path) && !current_page?("/rooms/#{params[:id]}") %>
+        <% if !current_page?("/rooms/#{params[:id]}") %>
           <div class="form-group">
             <table>
             <tbody>
@@ -97,7 +97,10 @@
               </a>
               <ul class="dropdown-menu">
                 <li><%= link_to "Messages", conversations_path %></li>
-                <li><%= link_to "Notifications", notifications_path %></li>
+                <li><%= link_to notifications_path do %>
+                  <span id="num_of_unread">Notifications (<%= current_user.unread %>)</span><div class="pull-right">view all</div>
+                  <% end %>
+                </li>
                   <span class="badge" id="navbar_num_of_unread"><%= current_user.unread if current_user.unread > 0 %></span>
               </ul>
           </li>
