@@ -152,10 +152,8 @@
   </div>
 
   <%if @room.user_id != current_user.id %>
-    <div class="body-right reservation-panel">
       <!-- RESERVATION FORM -->
       <%= render 'reservations/form' %>
-    </div>
   <% end %>
 
   <!-- FULL WIDTH PANEL -->
@@ -166,7 +164,7 @@
     <div class="map">
       <div id="map" style="width: 100%; height: 400px"></div>
       <br>
-      <p class="annotation" >Exact location information is provided after a booking is confirmed.</p>
+      <p class="annotation">Exact location information is provided after a booking is confirmed.</p>
       <script src="https://maps.googleapis.com/maps/api/js&key=AIzaSyDUvkD0jx2F2Qi06SZxJx-chVl0g-USk-w"></script>
       <script>
         function initialize() {

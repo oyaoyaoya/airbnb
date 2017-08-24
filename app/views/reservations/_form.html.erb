@@ -1,6 +1,6 @@
-<div class="panel panel-default" id="scrollTop">
+<div class="panel panel-default body-right", id="reservationPanel">
   <div class="panel-heading", id="reservationpanel-heading"><p class="pull-left"><% if @room.Instant? %><i class="fa fa-bolt pull-left" style="color: #ffb400"></i><% end %>
-  from&nbsp;$<%= @room.price %>&nbsp;Per Night</p>
+  from&nbsp;$<%= @room.price %>&nbsp;Per Night</p></div>
   <div class="panel-body">
     <%= form_for([@room, @room.reservations.new]) do |f| %>
       <div class="row">
@@ -14,7 +14,7 @@
         </div>
       </div>
 
-      <div id="preview" style="display: none">
+      <div class="row", id="preview" style="display: none">
         <table class="reservation-table">
           <tbody>
             <tr>
@@ -152,11 +152,11 @@
         });
       }
     });
-    var nav = $('#scrollTop'),
+    var nav = $('#reservationPanel'),
     offset = nav.offset();
 
     $(window).scroll(function () {
-      if($(window).scrollTop() > offset.top - 20) {
+      if($(window).scrollTop() > offset.top) {
         nav.addClass('fixed');
       } else {
         nav.removeClass('fixed');

@@ -43,12 +43,20 @@
   float: left;
 }
 
-.body-right {
-  float: right;
-}
-
 .body-full {
   width: 100%;
+}
+
+.fixed {
+  position: fixed;
+  top: 15px;
+  right: 10%;
+}
+
+.body-right {
+  float: right;
+  right: 11%;
+  z-index: 100;
 }
 
 #reservationpanel-heading {
