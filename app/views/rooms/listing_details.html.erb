@@ -112,19 +112,19 @@
       </div>
     </div>
 
-    <!-- Carousel -->
+    <!-- CAROUSEL -->
     <div class="row">
 
       <% if @photos.present? %>
           <div id="myCarousel" class="carousel slide" data-ride="carousel">
-          <!-- Indicators -->
+          <!-- INDICATORS -->
           <ol class="carousel-indicators">
             <% @photos.each do |photo| %>
                 <li data-target="#myCarousel" data-slide-to="<%= photo.id %>"></li>
             <% end %>
           </ol>
 
-          <!-- Wrapper for slides -->
+          <!-- WRAPPER FOR SLIDES -->
           <div class="carousel-inner">
             <% @photos.each do |photo| %>
                 <div class="item <%= 'active' if photo.id == @photos[0].id %>">
@@ -133,7 +133,7 @@
             <% end %>
           </div>
 
-          <!-- Left and right controls -->
+          <!-- LEFT AND RIGHT CONTROLS -->
           <a class="left carousel-control" href="#myCarousel" data-slide="prev">
             <span class="glyphicon glyphicon-chevron-left"></span>
             <span class="sr-only">Previous</span>
@@ -149,9 +149,9 @@
     <hr/>
 
 
-    <%if @room.user_id == current_user.id %>
-      <%= link_to "Delete this room", room_path(@room), method: :destroy, class: "btn btn-normal" %>
-    <% end %>
+<!--     <%if @room.user_id == current_user.id %>
+      <%= link_to "Delete this room", room_path(@room), method: :delete, class: "btn btn-normal", data: {confirm: "Are you sure to delete this room?"} %>
+    <% end %> -->
      <br>
      <hr>
   </div>

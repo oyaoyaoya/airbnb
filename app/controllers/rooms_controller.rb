@@ -26,7 +26,7 @@ before_action :is_authorised, only: [:listing, :pricing, :description, :photo_up
   end
 
   def edit
-    if current_user.id == @room.user.id
+    if current_user.id == @room.user_id
       @photos = @room.photos
     else
       redirect_to root_path, notice: "You don't have permission."
@@ -46,8 +46,10 @@ before_action :is_authorised, only: [:listing, :pricing, :description, :photo_up
   end
 
 
-  def destroy
-  end
+  # def destroy
+  #   @room.destroy
+  #   redirect_to rooms_path, notice: "Room deleted..."
+  # end
   
   def preload
     today = Date.today

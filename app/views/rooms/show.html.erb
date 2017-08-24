@@ -144,16 +144,16 @@
       </div>
     </div>
 
-    <%if @room.user_id == current_user.id %>
-      <%= link_to "Delete this room", room_path(@room), method: :destroy, class: "btn btn-normal" %>
-    <% end %>
+<!--     <%if @room.user_id == current_user.id %>
+      <%= link_to "Delete this room", room_path(@room), method: :delete, class: "btn btn-normal", data: {confirm: "Are you sure to delete this room?"} %>
+    <% end %> -->
      <br>
      <hr>
   </div>
 
   <%if @room.user_id != current_user.id %>
     <div class="body-right reservation-panel">
-      <!-- Reservation Form -->
+      <!-- RESERVATION FORM -->
       <%= render 'reservations/form' %>
     </div>
   <% end %>
