@@ -6,6 +6,7 @@
       <div class="panel-body">
         <div class="container">
 
+        <% if @conversations.present? %>
           <% @conversations.each do |conversation| %>
               <% other = current_user == conversation.sender ? conversation.recipient : conversation.sender %>
               <%= link_to conversation_messages_path(conversation) do %>
@@ -31,6 +32,13 @@
 
               <% end %>
           <% end %>
+
+        <% else %>
+          <h3>No Messages yet.</h3>
+          <p class="annotation">When you make plans to travel, read messages from your host here.</p>
+          <%= link_to "Explore Listings", search_path, class: "btn btn-normal" %>
+          <br>
+        <% end %>
 
         </div>
       </div>
