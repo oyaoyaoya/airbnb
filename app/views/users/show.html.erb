@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-3">
-      <div class="panel-body">
+      <div class="panel panel-body">
         <div class="image-responsive" id="profile-photo-large">
           <% if current_user.image.present? %>
             <%= image_tag current_user.image_url, class: "avatar-full" %>
@@ -32,7 +32,9 @@
 
     <div class="col-md-9">
       <h1>Hey, I'm <%= @user.fullname %>!</h1>
-      <a href="/profile">Edit Profile</a>
+      <% if current_user == @user %>
+        <a href="/profile">Edit Profile</a>
+      <% end %>
       <div class="description row-space-3">
         <%= @user.description %>
       </div>

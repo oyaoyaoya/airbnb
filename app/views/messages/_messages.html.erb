@@ -1,7 +1,6 @@
 <div class="panel">
   <div class="panel-body">
-    <% if @messages.present? %>
-      <% if message.user.image_url.present? %>
+      <% if message.user.image.present? %>
         <%= image_tag message.user.image_url, class: "img-circle avatar-medium" %>
       <% else %>
         <%= image_tag "https://s.gravatar.com/avatar/e90c5b356d93f510fb660e271ec62782?s=80", class: "image-circle avatar-medium" %>
@@ -12,10 +11,5 @@
       <div class="row-space-2">
         <%= message.context %>
       </div>
-    <% else %>
-      <h3>No Messages yet.</h3>
-      <p class="annotation">When you make plans to travel, read messages from your host here.</p>
-      <%= link_to "Explore Listings", search_path, class: "btn btn-normal" %>
-    <% end %>
   </div>
 </div>
