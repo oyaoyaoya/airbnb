@@ -1,7 +1,11 @@
 <div class="container">
   <div class="row">
     <div class="col-md-3 text-center">
+    <% if @other.image.blank? %>
+      <%= image_tag "https://s.gravatar.com/avatar/e90c5b356d93f510fb660e271ec62782?s=80", class: "image-circle avatar-small" %>
+    <% else %>
       <%= image_tag @other.image.url, class: "img-circle avatar-medium" %>
+    <% end %>
       <strong><%= @other.fullname %></strong>
       <%= link_to "View Profile", @other, class: "btn btn-default" %>
     </div>

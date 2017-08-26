@@ -3,7 +3,7 @@
    <% if @notifications.present? %>
     <% @notifications.each do |notification| %>
       <strong><%= notification.content %></strong>
-      <span class="pull-right"><%= @notification.created_at.to_formatted_s(:short) %></span>
+      <span class="pull-right"><%= notification.created_at.to_formatted_s(:short) %></span>
     <% end %>
   <% else %>
   No notifications.
