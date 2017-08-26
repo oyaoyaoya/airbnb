@@ -41,14 +41,28 @@
     </div>
   </div>
 <% else %>
-  <div class="row">
-      <div class="col-md-8" style="float: left">
-        <h2>Choose your next adventure</h2>
-        <p>Give your friends $38 to try Airbnb and you will also get $19 in travel credit when they take their first trip.</p>
-      </div>
-    <div class="col-md-12">
+<div class="col-md-10" id="yourtrip">
+  <div class="row yourtrip">
+    <h2>Choose your next adventure</h2>
+    <p class="col-md-8" style="padding-left:0">Give your friends $38 to try Airbnb and you will also get $19 in travel credit when they take their first trip.</p>
+
+    <div class="col-md-12" style="margin:30px auto 50px">
+      <i class="fa fa-space-shuttle fa-5x faa-passing animated" aria-hidden="true"></i>
+      <i class="fa fa-space-shuttle fa-5x faa-passing animated" aria-hidden="true"></i>
+      <i class="fa fa-space-shuttle fa-5x faa-passing animated" aria-hidden="true"></i>
+      <i class="fa fa-space-shuttle fa-5x faa-passing animated" aria-hidden="true"></i>
+      <i class="fa fa-space-shuttle fa-5x faa-passing animated" aria-hidden="true"></i>
+      <i class="fa fa-space-shuttle fa-5x faa-passing animated" aria-hidden="true"></i>
+      <i class="fa fa-space-shuttle fa-5x faa-passing animated" aria-hidden="true"></i>
       <i class="fa fa-space-shuttle fa-5x faa-passing animated" aria-hidden="true"></i>
     </div>
+    <div class="col-md-12">
+    <%= link_to "Invite Friends", src="https://www.airbnb.com/invite?r=43", class: "btn btn-normal" %>
+    </div>
+  </div>
+  </div>
+  <div class="row blueearth">
+    <img src="http://www.gizmodo.jp/images/2015/08/150804globalwarmingunknown.jpg" class="right" alt="trip" />
   </div>
 <% end %>
 </div>

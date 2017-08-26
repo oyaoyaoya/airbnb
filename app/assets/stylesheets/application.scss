@@ -64,6 +64,31 @@ li a {
   float: right;
 }
 
+.left {
+  float: left;
+}
+
+.fa-space-shuttle {
+  margin: auto 10px;
+  color: #66CCCC;
+}
+
+.yourtrip {
+  min-height: 400px;
+}
+
+#yourtrip {
+  display: block;
+  z-index: 99;
+}
+
+.blueearth {
+  position: absolute;
+  top: 140px;
+  right: 5%;
+}
+
+
 #profile-photo-large{
   line-height: 238px;
   text-align: center;
