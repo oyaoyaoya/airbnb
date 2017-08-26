@@ -58,7 +58,7 @@
       <ul class="nav navbar-nav navbar-right">
         
           <% if user_signed_in? && current_user.rooms.present? %>
-            <li><%= link_to "Get Hosting Help", src="https://www.airbnb.com/co-hosting?ref=header_button" %></li>
+            <li><%= link_to "Get Hosting Help", src="https://www.airbnb.com/co-hosting?ref=header_button", class: "hostinghelp" %><div class="remark"><p>Find an experienced co-host who can help you earn money by renting your extra space to travelers.</p></div></li>
             <li>
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"
                     role="button" aria-haspopup="true" aria-expanded="false">

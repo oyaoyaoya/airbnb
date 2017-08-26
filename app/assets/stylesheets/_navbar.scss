@@ -1,6 +1,7 @@
 .navbar {
   clear: both;
   width: 100%;
+  z-index: 99;
 }
 
 .navbar-right {
@@ -73,16 +74,60 @@
 }
 
 table {
-  border: solid 1px #EDEDED;
+  border: solid 1px $ColorLightgray;
   box-shadow: -1px 1px 2px 0px rgba(0, 0, 0, 0.2);
   display: block;
   border-radius: 3px 3px 3px 3px;
 }
+
 .badge {
   background-color: $ColorRed;
   position: relative;
   top: -15px;
   left: -5px;
+}
+
+.hostinghelp {
+  position: relative;
+}
+
+.remark {
+  display: none;
+  width: 450px;
+  position: absolute;
+  top: 60px;
+  left: -300px;
+  border-radius: 5px;
+  padding: 15px;
+  padding-bottom: 10px;
+  border: 1px solid $ColorLightgray;
+  background: $ColorWhite;
+  font-size: 95%;
+  z-index: 100;
+  line-height: 150%;
+}
+
+
+.remark:before {
+  position: absolute;
+  bottom: 100%;
+  left: 80%;
+  margin-left: -15px;
+  border-bottom: 12px solid $ColorWhite;
+  border-right: 12px solid $ColorLightgray;
+  border-left: 12px solid $ColorLightgray;
+  content: '';
+  margin-left: -10px;
+}
+
+.remark:after {
+  border-color: $ColorWhite;
+  border-bottom-color: $ColorWhite;
+}
+
+
+.hostinghelp:hover + .remark {
+  display: block;
 }
 
 #mainlogo {
