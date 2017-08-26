@@ -7,7 +7,7 @@
       <h5>Earn $100 travel credit</h5>
       <p>Give your friends $40 off their first trip on Airbnb and you’ll get up to $100 travel credit.</p>
       <a href="https://www.airbnb.com/invite?r=35" class="btn btn-form">Invite Friends</a>
-      <button type="button" class="btn space-sm-2" id="remove-button">Later</button>
+      <button type="button" class="btn space-sm-2" id="later-button">Later</button>
     </div>
     <div id="remove-icon">
       <span class="glyphicon glyphicon-remove pull-right"></span>
@@ -57,8 +57,16 @@
     <!-- NOTIFICATIONS -->
     <div class="panel panel-default">
       <div class="panel-heading">Notifications</div>
-      <div class="panel-body">
           <%= render partial: 'notifications/notification', locals: {notifications: @notifications} %>
+    </div>
+
+    <div class="panel panel-default panel-body" id="advertisement" style="display: none;">
+      <div class="col-md-8">
+        <h3>Invite friends, earn travel credit!</h3>
+        <p>Earn up to ¥ 10,100 for everyone you invite.</p>
+      </div>
+      <div class="col-md-4">
+        <button type="button" class="btn btn-normal pull-right">Travel Credit</button>
       </div>
     </div>
 
@@ -80,8 +88,9 @@
 </div>
 
 <script>
-  $('#remove-button').click(function() {
+  $('#later-button').click(function() {
     $(this).parents(".alert").fadeOut(200);
+    $('#advertisement').show();
   })
   $("#remove-icon span").click(function() {
     $(this).parents(".alert").fadeOut(200);

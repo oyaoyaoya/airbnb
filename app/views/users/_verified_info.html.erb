@@ -7,5 +7,8 @@
           <% if current_user.phone_number.present? %>
             <li>Phone Number<span class="pull-right icon-babu"><i class="fa fa-check-circle-o"></i></span></li>
           <% end %>
+          <% if !current_user.provider && current_user.phone_number.blank? %>
+            <p>Not verified yet</p>
+          <% end %>
       </div>
     </div>

@@ -1,8 +1,12 @@
 <div class="panel">
   <div class="panel-body">
+   <% if @notifications.present? %>
     <% @notifications.each do |notification| %>
       <strong><%= notification.content %></strong>
       <span class="pull-right"><%= @notification.created_at.to_formatted_s(:short) %></span>
     <% end %>
+  <% else %>
+  No notifications.
+  <% end %>
   </div>
 </div>
