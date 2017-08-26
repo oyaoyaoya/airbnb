@@ -7,8 +7,15 @@
   height: 64px;
 }
 
+.navbar-right li a {
+  font-size: 92%;
+  padding-left: 1px;
+  padding-right: 7px;
+}
+
 .navbar-default {
   background-color: $ColorWhite;
+  margin-bottom: 0;
 }
 
 .navbar-default .navbar-brand {
@@ -29,6 +36,7 @@
 
 .navbar-left {
   margin: 15px 0px;
+  padding: 0 0;
 }
 
 .navbar-nav li a {
@@ -57,13 +65,6 @@
   color: #bbb;
 }
 
-.badge {
-  background-color: #FF5A5F;
-  position: relative;
-  top: -15px;
-  left: -5px;
-}
-
 .icon-gray {
   float: left;
   width: 32px;
@@ -71,6 +72,12 @@
   text-align: center;
 }
 
+table {
+  border: solid 1px #EDEDED;
+  box-shadow: -1px 1px 2px 0px rgba(0, 0, 0, 0.2);
+  display: block;
+  border-radius: 3px 3px 3px 3px;
+}
 .badge {
   background-color: $ColorRed;
   position: relative;
@@ -114,10 +121,6 @@
   border: none;
   outline: none;
   height: $navboxHeight;
-}
-
-table td {
-  border: 1px solid DarkGray;
 }
 
 // ACTIVATED STYLES

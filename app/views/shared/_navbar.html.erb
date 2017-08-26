@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default navbar-static-top",<% if current_page?(search_path) || current_page?(root_path) %> id="search-nav"<% end %>>
+<nav class="navbar navbar-default",<% if current_page?(search_path) || current_page?(root_path) %> id="search-nav"<% end %>>
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
         <span class="sr-only">Toggle navigation</span>
@@ -12,9 +12,9 @@
 
   <!-- TOP NAVBAR -->
     <div id="navbar" class="navbar-collapse collapse">
-      <%= form_tag search_path, class: "navbar-form navbar-left", method: :get do %>
+      <%= form_tag search_path, class: "navbar-form navbar-left col-md-5", method: :get do %>
 
-        <% if !current_page?("/rooms/#{params[:id]}") && !current_page?(your_reservations_path) && !current_page?(your_trips_path) %>
+        <% if current_page?(root_path) || current_page?(search_path) %>
           <div class="form-group">
             <table>
             <tbody>
@@ -27,18 +27,18 @@
               <%= text_field_tag :search, params[:search], placeholder: "Anywhere", class: "form-navbar" %>
             </td>
 
-              <td>
-              <div class="icon-gray">
+            <td>
+              <div class="icon-gray" style="border-left: 1px solid #EDEDED">
                 <i class="fa fa-calendar-o" aria-hidden="true"></i>
               </div>
                 <%= text_field_tag :start_date, params[:start_date], placeholder: "Start Date", class: "form-navbar datepicker" %>
-              </td>
+            </td>
 
-              <td>
-                <div class="icon-gray">
-                  <i class="fa fa-users" aria-hidden="true"></i>
-                </div>
-                <%= text_field_tag :end_date, params[:end_date], placeholder: "End Date", class: "form-navbar datepicker" %>
+            <td>
+              <div class="icon-gray" style="border-left: 1px solid #EDEDED">
+                <i class="fa fa-users" aria-hidden="true"></i>
+              </div>
+              <%= text_field_tag :end_date, params[:end_date], placeholder: "End Date", class: "form-navbar datepicker" %>
             </td>
             </tr>
             </tbody>
@@ -80,7 +80,7 @@
               <li><%= link_to "Host Assist", src="https://www.airbnb.com/host-assist" %></li>
 
               <li><%= link_to "Experience Hosting", src="https://www.airbnb.com/host/experiences" %></li>
-              </ul>
+            </ul>
             </li>
           <% else %>
             <li><%= link_to "Become a host", new_room_path %></li>
@@ -107,7 +107,7 @@
           </li>
         <% end %>
         <li>
-          <%= link_to "Help (TBD)", root_path %>
+          <%= link_to "Help", src="https://www.airbnb.com/help" %>
         </li>
 
         <% if (!user_signed_in?) %>
@@ -120,7 +120,7 @@
                     <% if current_user.image.present? %>
                       <%= image_tag current_user.image, class: "img-circle avatar-small" %>&nbsp;
                     <% else %>
-                      <%= current_user.fullname %>
+                      <%= image_tag "https://s.gravatar.com/avatar/e90c5b356d93f510fb660e271ec62782?s=80", class: "image-circle avatar-small" %>
                     <% end %>
               </a>
               <ul class="dropdown-menu">
