@@ -1,4 +1,6 @@
 <div class="container">
+
+<% if !@trips.blank? %>
   <div class="row">
   <%= render 'shared/sidebar' %>
   <div class="col-md-9">
@@ -34,8 +36,19 @@
           </div>
           <hr/>
         <% end %>
+        </div>
       </div>
     </div>
   </div>
-</div>
+<% else %>
+  <div class="row">
+      <div class="col-md-8" style="float: left">
+        <h2>Choose your next adventure</h2>
+        <p>Give your friends $38 to try Airbnb and you will also get $19 in travel credit when they take their first trip.</p>
+      </div>
+    <div class="col-md-12">
+      <i class="fa fa-space-shuttle fa-5x faa-passing animated" aria-hidden="true"></i>
+    </div>
+  </div>
+<% end %>
 </div>
