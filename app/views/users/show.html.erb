@@ -41,19 +41,26 @@
       </div>
 
       <br/>
-      <h2>Reviews</h2>
 
+      <% if @host_reviews.present? || @guest_reviews.present? %>
+        <h2>Reviews</h2>
+      <% end %>
+      
+      <% if @host_reviews.present? %>
       <h4>Reviews From Hosts (<%= @host_reviews.count %>)</h4>
-      <div class="row">
-        <%= render "reviews/host_list" %>
-      </div>
+        <div class="row">
+          <%= render "reviews/host_list" %>
+        </div>
+        <br><br>
+      <% end %>
 
-      <h4>Reviews From Guests (<%= @guest_reviews.count %>)</h4>
-      <div class="row">
-        <%= render "reviews/guest_list" %>
-      </div>
-      <br/>
-
+      <% if @guest_reviews.present? %>
+        <h4>Reviews From Guests (<%= @guest_reviews.count %>)</h4>
+        <div class="row">
+          <%= render "reviews/guest_list" %>
+        </div>
+        <br/>
+      <% end %>
     </div>
   </div>
 </div>

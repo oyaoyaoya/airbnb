@@ -14,7 +14,7 @@
                   <div class="row conversation">
                     <% if conversation.messages.any? %>
                       <div class="col-md-2">
-                        <% if %>
+                        <% if other.image.present? %>
                           <%= image_tag image_url(other), class: "img-circle avatar-medium" %>
                         <% else %>
                           <%= image_tag "https://s.gravatar.com/avatar/e90c5b356d93f510fb660e271ec62782?s=80", class: "image-circle avatar-medium" %>

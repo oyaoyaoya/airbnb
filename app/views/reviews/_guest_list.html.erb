@@ -8,7 +8,11 @@
     <hr/>
     <div class="row">
       <div class="col-md-3 text-center">
-        <%= image_tag avatar_url(r.guest), class: "img-circle avatar-medium" %><br/><br/>
+      <% if r.guest.image.present? %>
+        <%= image_tag r.guest.image_url, class: "img-circle avatar-medium" %><br/><br/>
+      <% else %>
+        <%= image_tag "https://s.gravatar.com/avatar/e90c5b356d93f510fb660e271ec62782?s=80", class: "image-circle avatar-small" %>
+      <% end %>
         <strong><%= r.guest.fullname %></strong>
       </div>
       <div class="col-md-9">
