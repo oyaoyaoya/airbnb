@@ -6,8 +6,8 @@
       <div class="panel-body">
         <div class="container">
 
-        <% if conversations.present? %>
-          <% conversations.each do |conversation| %>
+        <% if @conversations.present? %>
+          <% @conversations.each do |conversation| %>
               <% other = current_user == conversation.sender ? conversation.recipient : conversation.sender %>
               <%= link_to conversation_messages_path(conversation) do %>
 

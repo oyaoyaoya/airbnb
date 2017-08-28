@@ -16,8 +16,9 @@
         <h1><%= @room.listing_name %></h1>
         <%= @room.address %>
       </div>
-      <div class="col-md-4 text-center">
-        <a href="/users/1", style="text-decoration:none">
+      <div class="col-md-4 text-center userlink">
+
+        <%= link_to "/users/#{@room.user_id}" do %>
           <% if @room.user.image_url.present? %>
              <%= image_tag @room.user.image_url, class: "img-circle avatar-large" %>
           <% else %>
@@ -25,7 +26,7 @@
           <% end %>
           <br/><br/>
           <%= @room.user.fullname %>
-        </a>
+        <% end %>
       </div>
     </div>
     <hr/>
