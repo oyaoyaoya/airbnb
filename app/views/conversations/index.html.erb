@@ -4,7 +4,6 @@
     <div class="panel panel-default">
       <div class="panel-heading">Your Conversations</div>
       <div class="panel-body">
-        <div class="container">
 
         <% if @conversations.present? %>
           <% @conversations.each do |conversation| %>
@@ -13,9 +12,9 @@
 
                   <div class="row conversation">
                     <% if conversation.messages.any? %>
-                      <div class="col-md-2">
+                      <div class="col-md-2" style="text-align:center">
                         <% if other.image.present? %>
-                          <%= image_tag image_url(other), class: "img-circle avatar-medium" %>
+                          <%= image_tag other.image_url, class: "img-circle avatar-medium" %>
                         <% else %>
                           <%= image_tag "https://s.gravatar.com/avatar/e90c5b356d93f510fb660e271ec62782?s=80", class: "image-circle avatar-medium" %>
                         <% end %>
@@ -40,7 +39,6 @@
           <br>
         <% end %>
 
-        </div>
       </div>
     </div>
   </div>

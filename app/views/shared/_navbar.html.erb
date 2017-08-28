@@ -187,7 +187,7 @@
 
       <nav class="navbar-inbetween" style="background-color: #484848">
         <div class="container">
-          <ul class="nav navbar-nav subnav-item" id="navbar-black">
+          <ul class="nav navbar-nav subnav-item navbar-black">
             <li <% if current_page?(dashboard_path) %> id="activepage" <% end %>><%= link_to "Dashboard", dashboard_path %></li>
 
             <% if current_user.rooms.present? %>

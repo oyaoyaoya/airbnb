@@ -24,11 +24,6 @@
   font-weight: 400;
 }
 
-#navbar-black li a {
-  height: 40px;
-  color: $ColorLightgray1;
-}
-
 .navbar-default li {
   line-height: 30px;
   display: block;
@@ -62,9 +57,13 @@
   width: 100%;
 }
 
+.navbar-black a {
+  color: $ColorLightgray1;
+}
+
 .subnav-item li a {
   line-height: 10px;
-  color: #bbb;
+  color: $ColorLightgray1;
 }
 
 .icon-gray {
@@ -75,7 +74,7 @@
 }
 
 table {
-  border: solid 1px $ColorLightgray;
+  border: solid 1px $ColorLightgray2;
   box-shadow: -1px 1px 2px 0px rgba(0, 0, 0, 0.2);
   display: block;
   border-radius: 3px 3px 3px 3px;
@@ -101,7 +100,7 @@ table {
   border-radius: 5px;
   padding: 15px;
   padding-bottom: 10px;
-  border: 1px solid $ColorLightgray;
+  border: 1px solid $ColorLightgray2;
   background: $ColorWhite;
   font-size: 95%;
   z-index: 100;
@@ -114,8 +113,8 @@ table {
   left: 80%;
   margin-left: -15px;
   border-bottom: 12px solid $ColorWhite;
-  border-right: 12px solid $ColorLightgray;
-  border-left: 12px solid $ColorLightgray;
+  border-right: 12px solid $ColorLightgray2;
+  border-left: 12px solid $ColorLightgray2;
   content: '';
   margin-left: -10px;
 }
