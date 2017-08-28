@@ -24,8 +24,9 @@
   font-weight: 400;
 }
 
-.navbar-inbetween {
+#navbar-black li a {
   height: 40px;
+  color: $ColorLightgray1;
 }
 
 .navbar-default li {
