@@ -1,11 +1,11 @@
 <div class="container">
 <div class="row">
   <div class="col-md-12">
+  <% if @conversations.present? %>
     <div class="panel panel-default">
       <div class="panel-heading">Your Conversations</div>
       <div class="panel-body">
 
-        <% if @conversations.present? %>
           <% @conversations.each do |conversation| %>
               <% other = current_user == conversation.sender ? conversation.recipient : conversation.sender %>
               <%= link_to conversation_messages_path(conversation) do %>
@@ -37,10 +37,10 @@
           <p class="annotation">When you make plans to travel, read messages from your host here.</p>
           <%= link_to "Explore Listings", search_path, class: "btn btn-normal" %>
           <br>
-        <% end %>
-
       </div>
     </div>
   </div>
+ <% end %>
+
 </div>
 </div>
