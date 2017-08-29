@@ -2,7 +2,7 @@ app_path = File.expand_path('../../', __FILE__)
 puts "------------------------------------------------"
 puts app_path
 puts "------------------------------------------------"
-working_directory "#{app_path}/current"
+working_directory "#{app_path}/"
 pid "#{app_path}/shared/tmp/pids/unicorn.pid"
 stderr_path "#{app_path}/shared/log/unicorn.stderr.log"
 stdout_path "#{app_path}/shared/log/unicorn.stdout.log"
