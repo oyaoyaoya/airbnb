@@ -44,6 +44,10 @@
   float: left;
 }
 
+.btn.btn-white:hover {
+  background: $ColorLightgray1;
+}
+
 .btn.btn-edit {
   border: 2px solid $ColorGreen;
   background-color: $ColorWhite;

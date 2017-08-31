@@ -11,6 +11,20 @@
   font-size: 14px;
 }
 
+// LISTING DETAILS
+
+.green-label {
+  background: $ColorGreen;
+  color: $ColorWhite;
+  line-height: 68px;
+}
+
+#preview-listing-button {
+  border: 2px solid white;
+  line-height: 34px;
+  margin-top: 10px;
+}
+
 // RESERVATIONS
 
 .reservation-table td {

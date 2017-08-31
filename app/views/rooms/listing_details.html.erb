@@ -1,22 +1,32 @@
-<div class="container">
-
-  <%= render 'navbar' %>
-
-  <div>
-    <h5>Edit mode: </h5>You can change the details of your listing below.
-  </div>
-  <a href=room_path class="btn btn-form">Preview listing</a>
-  
-  <!-- IMAGE -->
-      <div class="col-md-12">
-        <%= image_tag @room.photos[0].image.url, width: "100%" %>
-      </div>
+<div class="body-full">
+  <div class="green-label">
+    <div class="green-label container">
+      <span style="font-size: 19px">Preview mode: </span> This is how guests will see your listing
+      <a href=room_path class="btn btn-form pull-right" id="preview-listing-button">Preview listing</a>
     </div>
-
-  <br>
+  </div>
+  <%= image_tag @room.photos[0].image.url, width: "100%" %>
+</div>
+<br>
 
 <div class="container">
-    <!-- main info -->
+  <!-- BAR -->
+  <ul class="nav navbar-nav subnav-item">
+    <li <% if current_page?(listing_details_room_path) %> id="activetab" <% end %>>
+      <%= link_to "Overview", root_path %>
+    </li>
+    <li <% if current_page?(root_path) %> id="activetab" <% end %>>
+      <%= link_to "Reviews", root_path %>
+    </li>
+    <li <% if current_page?(local_laws_room_path) %> id="activetab" <% end %>>
+      <%= link_to "The Host", root_path %>
+    </li>
+    <li <% if current_page?(co_hosts_room_path) %> id="activetab" <% end %>>
+      <%= link_to "Location (TBD)", root_path %>
+    </li>
+  </ul>
+
+    <!-- MAIN INFO -->
   <div class="body-left">
     <div class="row">
       <div class="col-md-8">
@@ -55,7 +65,7 @@
     </div>
     <hr/>
 
-    <!-- About -->
+    <!-- ABOUT -->
     <div class="row">
       <div class="col-md-12">
         <h3>About This Listing</h3>
@@ -64,7 +74,7 @@
     </div>
     <hr/>
 
-    <!-- Amenities -->
+    <!-- AMENITIES -->
     <div class="row">
       <div class="col-md-3">
         <h3>Amenities</h3>
@@ -155,7 +165,5 @@
      <br>
      <hr>
   </div>
-
+<%= render 'room_map' %>
 </div>
-
-
