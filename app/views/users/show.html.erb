@@ -12,7 +12,9 @@
       </div>
       <div class="panel panel-body">
         <% if current_user && current_user != @user %>
-          <%= link_to conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: :post, class: "btn btn-default" do %>Send Message&nbsp;<i class="fa fa-envelope-o faa-shake animated" aria-hidden="true"></i><% end %>
+          <%= link_to conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: :post, class: "btn btn-default" do %>
+          Send Message&nbsp;<i class="fa fa-envelope-o faa-shake animated" aria-hidden="true"></i>
+          <% end %>
         <% end %>
       </div>
       <div class="panel panel-default">

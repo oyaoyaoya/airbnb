@@ -10,31 +10,24 @@
 <br>
 
 <div class="container">
-  <!-- BAR -->
-  <ul class="nav navbar-nav subnav-item">
-    <li <% if current_page?(listing_details_room_path) %> id="activetab" <% end %>>
-      <%= link_to "Overview", root_path %>
-    </li>
-    <li <% if current_page?(root_path) %> id="activetab" <% end %>>
-      <%= link_to "Reviews", root_path %>
-    </li>
-    <li <% if current_page?(local_laws_room_path) %> id="activetab" <% end %>>
-      <%= link_to "The Host", root_path %>
-    </li>
-    <li <% if current_page?(co_hosts_room_path) %> id="activetab" <% end %>>
-      <%= link_to "Location (TBD)", root_path %>
-    </li>
-  </ul>
 
     <!-- MAIN INFO -->
   <div class="body-left">
     <div class="row">
       <div class="col-md-8">
-        <h1><%= @room.listing_name %></h1>
+        <h1><%= @room.listing_name %>(<%= link_to "Edit listing", listing_room_path %>)</h1>
         <%= @room.address %>
       </div>
       <div class="col-md-4 text-center">
-        <%= @room.user.fullname %>
+        <%= link_to "/users/#{@room.user_id}" do %>
+          <% if @room.user.image_url.present? %>
+             <%= image_tag @room.user.image_url, class: "img-circle avatar-large" %>
+          <% else %>
+            <%= image_tag "https://s.gravatar.com/avatar/e90c5b356d93f510fb660e271ec62782?s=80", class: "image-circle avatar-medium" %>
+          <% end %>
+          <br/><br/>
+          <%= @room.user.fullname %>
+        <% end %>
       </div>
     </div>
     <hr/>
@@ -68,7 +61,6 @@
     <!-- ABOUT -->
     <div class="row">
       <div class="col-md-12">
-        <h3>About This Listing</h3>
         <p><%= @room.summary %></p>
       </div>
     </div>
@@ -77,7 +69,7 @@
     <!-- AMENITIES -->
     <div class="row">
       <div class="col-md-3">
-        <h3>Amenities</h3>
+        <h2>Amenities</h2>
       </div>
 
       <div class="col-md-9">
@@ -105,20 +97,20 @@
     <!-- REVIEWS -->
     <div class="row">
       <div class="col-md-12">
-        <h3>Reviews</h3>
         <% if @guest_reviews.present? %>
-          <h3>
+          <h2>
+            Reviews
             <%= pluralize(@guest_reviews.count, "Review") %>
             <span id="average_rating"></span>
-          </h3>
+          </h2>
           <div class="container">
             <div><%= render "reviews/guest_list" %></div>
           </div>
         <% else %>
+          <h2>No reviews (yet)</h2>
           <p class="annotation">This home doesn’t have any reviews. If you stay here, your review will appear here.</p>
         <% end %>
         <br>
-        <hr>
       </div>
     </div>
 
