@@ -26,9 +26,11 @@
 }
 
 // RESERVATIONS
+.reservation-table{
+  border: none;
+}
 
 .reservation-table td {
-  border: none;
   border-bottom: 1px solid #dce0e0;
   padding: 10px;
 }
