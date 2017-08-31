@@ -41,7 +41,7 @@ class ReservationsController < ApplicationController
   end
 
   def approve
-    charge(@reservation.room, @reservation)
+    @reservation.Approved!
     redirect_to your_reservations_path
   end
 
