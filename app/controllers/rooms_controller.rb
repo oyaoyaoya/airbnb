@@ -50,7 +50,7 @@ before_action :is_authorised, only: [:listing, :pricing, :description, :photo_up
   #   @room.destroy
   #   redirect_to rooms_path, notice: "Room deleted..."
   # end
-  
+
   def preload
     today = Date.today
     reservations = @room.reservations.where("(start_date >= ? OR end_date >= ?) AND status = ?", today, today, 1)
@@ -72,7 +72,7 @@ before_action :is_authorised, only: [:listing, :pricing, :description, :photo_up
   def photo_upload
     @photos = @room.photos
   end
-  
+
   def listing
   end
 
@@ -90,11 +90,16 @@ before_action :is_authorised, only: [:listing, :pricing, :description, :photo_up
   end
 
   private
+
     def set_room
       @room = Room.find(params[:id])
     end
+
     def room_params
-      params.require(:room).permit(:home_type, :room_type, :accommodate, :bed_room, :bath_room, :listing_name, :summary, :address, :is_tv, :is_kitchen, :is_air, :is_heating, :is_internet, :price, :active, :instant)
+      params.require(:room)
+            .permit(:home_type, :room_type, :accommodate, :bed_room, :bath_room, :listing_name, :summary,
+                    :address, :is_tv, :is_kitchen, :is_air, :is_heating, :is_internet, :price, :active, :instant
+            )
     end
 
     def is_conflict(start_date, end_date, room)
