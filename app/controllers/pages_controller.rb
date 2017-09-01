@@ -4,11 +4,11 @@ class PagesController < ApplicationController
   end
 
   def search
-    search = params[:search]
-    if search.blank?
+    search_params = params[:search]
+    if search_params.blank?
       @rooms_address = Room.where(active: true).all
     else
-      @rooms_address = Room.near_by_empty(search)
+      @rooms_address = Room.near_by_empty(search_params)
     end
 
     @search = @rooms_address.ransack(params[:q])
