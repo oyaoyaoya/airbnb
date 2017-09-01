@@ -17,4 +17,9 @@ class Room < ApplicationRecord
   def average_rating
     guest_reviews.count == 0 ? 0 : guest_reviews.average(:star).round(2).to_i
   end
+
+  def self.near_by_empty(location)
+    where(active: true).near(location, 5, order: 'distance')
+  end
+
 end
