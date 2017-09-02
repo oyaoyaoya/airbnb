@@ -14,12 +14,15 @@ class Room < ApplicationRecord
   validates :bed_room, presence: true
   validates :bath_room, presence: true
 
+  scope :search_from_location, ->(location=nil){
+    if location.blank?
+      where(active: true).all
+    else
+      where(active: true).near(location, 5, order: 'distance')
+    end
+  }
+
   def average_rating
     guest_reviews.count == 0 ? 0 : guest_reviews.average(:star).round(2).to_i
   end
-
-  def self.near_by_empty(location)
-    where(active: true).near(location, 5, order: 'distance')
-  end
-
 end
